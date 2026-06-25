@@ -6,7 +6,7 @@
 
 export const profile = {
   name: "Rohan",
-  role: "AI Engineer",
+  role: "An enthusiastic AI Engineer",
   location: "San Francisco, CA",
   // Short one-liner used in the hero
   tagline:
@@ -305,7 +305,6 @@ export const skillCategories: SkillCategory[] = [
       { name: "CrewAI", slug: "crewai" },
       { name: "Hugging Face", slug: "huggingface" },
       { name: "RAG" },
-      { name: "LLMs" },
     ],
   },
   {

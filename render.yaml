@@ -1,0 +1,27 @@
+# Render Blueprint — backend Web Service.
+# Render reads this from the repo root; `rootDir` points it at the backend/ folder.
+# Frontend is deployed separately on Vercel (see DEPLOY.md).
+services:
+  - type: web
+    name: portfolio-backend
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npx prisma migrate deploy && node dist/index.js
+    healthCheckPath: /health
+    # Secrets are set in the Render dashboard (sync:false keeps them out of git).
+    # PORT is injected by Render automatically — do not add it here.
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: DIRECT_URL
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: CONTACT_TO_EMAIL
+        sync: false
+      - key: CONTACT_FROM_EMAIL
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
