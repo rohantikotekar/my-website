@@ -42,7 +42,7 @@ export function BuildBackpack() {
   return (
     <Section
       id="skills"
-      index="05"
+      index="06"
       stage="Gear"
       title="What's in the pack"
       intro="Gear sorted into compartments. Open one to see the tools I carry."

@@ -26,7 +26,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Rohan — AI & Software Engineer",
+  title: "Rohan — AI Engineer",
   description:
     "The journey of an AI & Software Engineer, told as a trail through Yosemite. Explore experience, projects, skills, and milestones.",
   keywords: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     "Full-Stack",
   ],
   openGraph: {
-    title: "Rohan — AI & Software Engineer",
+    title: "Rohan - AI Engineer",
     description:
       "The journey of an AI & Software Engineer, told as a trail through Yosemite.",
     type: "website",

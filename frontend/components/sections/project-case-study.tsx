@@ -12,7 +12,6 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import { GithubIcon } from "@/components/icons";
 import type { Project } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -44,7 +43,6 @@ export function ProjectCaseStudy({
       ? { href, target: "_blank", rel: "noopener noreferrer" }
       : null;
 
-  const github = linkExternal(project.github);
   const demo = linkExternal(project.demo);
 
   return (
@@ -89,13 +87,34 @@ export function ProjectCaseStudy({
           </p>
         </header>
 
-        {/* Demo media placeholder */}
-        <div className="mt-8 flex aspect-video w-full items-center justify-center overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-forest/15 via-sky/10 to-amber/15">
-          <div className="flex flex-col items-center gap-2 text-muted-foreground">
-            <PlayCircle className="size-10 text-forest/70" />
-            <span className="text-sm">Demo media — drop a screenshot or clip here</span>
+        {/* Demo media */}
+        {project.media ? (
+          <div className="mt-8 w-full overflow-hidden rounded-2xl border border-border">
+            {project.media.type === "video" ? (
+              <video
+                src={project.media.src}
+                className="aspect-video w-full bg-black object-contain"
+                controls
+                playsInline
+                preload="metadata"
+              />
+            ) : (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={project.media.src}
+                alt={project.media.alt ?? `${project.title} preview`}
+                className="aspect-video w-full bg-muted/30 object-contain"
+              />
+            )}
           </div>
-        </div>
+        ) : (
+          <div className="mt-8 flex aspect-video w-full items-center justify-center overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-forest/15 via-sky/10 to-amber/15">
+            <div className="flex flex-col items-center gap-2 text-muted-foreground">
+              <PlayCircle className="size-10 text-forest/70" />
+              <span className="text-sm">Demo media — drop a screenshot or clip here</span>
+            </div>
+          </div>
+        )}
 
         {/* Overview */}
         <Block icon={Sparkles} title="Overview">
@@ -204,28 +223,15 @@ export function ProjectCaseStudy({
 
         {/* Links */}
         <div className="mt-10 flex flex-wrap gap-3">
-          {github ? (
-            <Button asChild>
-              <a {...github}>
-                <GithubIcon className="size-4" />
-                View code
-              </a>
-            </Button>
-          ) : (
-            <Button disabled>
-              <GithubIcon className="size-4" />
-              Code (coming soon)
-            </Button>
-          )}
           {demo ? (
-            <Button asChild variant="outline">
+            <Button asChild>
               <a {...demo}>
                 <ExternalLink className="size-4" />
                 Live demo
               </a>
             </Button>
           ) : (
-            <Button variant="outline" disabled>
+            <Button disabled>
               <ExternalLink className="size-4" />
               Demo (coming soon)
             </Button>

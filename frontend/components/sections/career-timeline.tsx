@@ -1,12 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import {
-  GraduationCap,
-  Briefcase,
-  FlaskConical,
-  ImageIcon,
-} from "lucide-react";
+import { GraduationCap, Briefcase, FlaskConical } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { careerStops, type CareerStop } from "@/lib/data";
 import { Section } from "@/components/section";
@@ -20,7 +15,10 @@ const KIND_ICON = {
 } as const;
 
 export function CareerTimeline() {
-  const [activeId, setActiveId] = useState<string>(careerStops[0].id);
+  // Default the open marker to the most recent stop (the latest experience).
+  const [activeId, setActiveId] = useState<string>(
+    careerStops[careerStops.length - 1].id
+  );
   const activeIndex = careerStops.findIndex((s) => s.id === activeId);
   const active: CareerStop = careerStops[activeIndex] ?? careerStops[0];
 
@@ -94,26 +92,9 @@ export function CareerTimeline() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-8 grid gap-6 rounded-2xl border border-border bg-card/60 p-6 lg:grid-cols-3"
+          className="mt-8 rounded-2xl border border-border bg-card/60 p-6"
         >
-          {/* Photo placeholder */}
-          <div className="flex aspect-[4/3] items-center justify-center overflow-hidden rounded-xl border border-border bg-gradient-to-br from-forest/15 via-moss/10 to-amber/15 lg:aspect-auto">
-            {active.photo ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={active.photo}
-                alt={active.title}
-                className="size-full object-cover"
-              />
-            ) : (
-              <div className="flex flex-col items-center gap-2 p-6 text-muted-foreground">
-                <ImageIcon className="size-8 text-forest/60" />
-                <span className="text-center text-xs">Add a photo here</span>
-              </div>
-            )}
-          </div>
-
-          <div className="lg:col-span-2">
+          <div>
             <h3 className="font-serif text-2xl font-semibold">{active.title}</h3>
             <p className="mt-1 text-sm font-medium text-muted-foreground">
               {active.org} · {active.period}

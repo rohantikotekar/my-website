@@ -1,13 +1,13 @@
-import { Compass, Leaf, Code2 } from "lucide-react";
-import { profile } from "@/lib/data";
+import { Target, Leaf, Code2 } from "lucide-react";
+import { profile, quickFacts } from "@/lib/data";
 import { Section } from "@/components/section";
 import { SectionReveal } from "@/components/trail/section-reveal";
 
 const values = [
   {
-    Icon: Compass,
-    title: "Curiosity",
-    text: "I chase the questions just past my current map.",
+    Icon: Target,
+    title: "Excellence",
+    text: "I hold my work to a high bar — done well and done right.",
   },
   {
     Icon: Leaf,
@@ -58,6 +58,24 @@ export function About() {
           </div>
         </SectionReveal>
       </div>
+
+      <SectionReveal delay={0.2}>
+        <div className="mt-12 rounded-xl border border-border bg-card/60 p-6 sm:p-8">
+          <p className="trail-eyebrow mb-6 text-muted-foreground/80">Trail log</p>
+          <dl className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+            {quickFacts.map(({ label, value }) => (
+              <div key={label} className="border-l-2 border-amber/40 pl-4">
+                <dt className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  {label}
+                </dt>
+                <dd className="mt-1 text-sm font-medium text-foreground/90 sm:text-base">
+                  {value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </SectionReveal>
     </Section>
   );
 }

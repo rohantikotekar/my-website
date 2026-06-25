@@ -17,7 +17,7 @@ export function Research() {
   return (
     <Section
       id="research"
-      index="04"
+      index="05"
       stage="Field Notes"
       title="Research & writing"
       intro="The questions I chase when the trail goes off the beaten path."

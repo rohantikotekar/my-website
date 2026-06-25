@@ -18,6 +18,9 @@ type ContactFormState = {
 
 const initialContactState: ContactFormState = { status: "idle" };
 
+/** Basic email shape check — non-empty local + domain with a dot. */
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 /** Client action: posts the form to the backend API and maps the response. */
 async function submitContact(
   _prev: ContactFormState,
@@ -29,6 +32,16 @@ async function submitContact(
     subject: (formData.get("subject") as string) ?? "",
     message: (formData.get("message") as string) ?? "",
   };
+
+  // Validate the email before hitting the network.
+  if (!EMAIL_RE.test(values.email.trim())) {
+    return {
+      status: "error",
+      message: "Please enter a valid email address.",
+      errors: { email: ["Please enter a valid email address."] },
+      values,
+    };
+  }
 
   try {
     const data = await postContactMessage({

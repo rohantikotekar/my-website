@@ -6,24 +6,49 @@
 
 export const profile = {
   name: "Rohan",
-  role: "AI & Software Engineer",
-  location: "Riverside, CA",
+  role: "AI Engineer",
+  location: "San Francisco, CA",
   // Short one-liner used in the hero
   tagline:
-    "I build AI systems that work in the real world — from vision-language models and LLM agents to the full-stack products that put them to use.",
+    "I build AI systems that work in the real world — from LLM agents, Vision systems to the full-stack products that put them to use.",
   // Longer narrative for the About section
   about: [
-    "I'm an AI and Software Engineer working where machine learning meets dependable engineering. Most recently I've been a graduate researcher in the Trustworthy Autonomous Systems Lab at UC Riverside, fusing vision-language models with spatial data to make autonomous systems safer and more interpretable.",
-    "Before that, I shipped production software and AI vision pipelines in industry — defect detection on the factory floor, high-concurrency transactional systems, and MLOps that took deployments from hours to minutes. I like the whole climb: research, modeling, and the full-stack product around it.",
-    "I'm endlessly curious and learn fastest by building things slightly beyond my reach. Off the keyboard, you'll usually find me outdoors with a topographic map and a thermos of coffee.",
+    "I’m driven to build things that didn’t exist yesterday and to create real value through intelligence. I’ve always been fascinated by human intelligence and how we navigate the world around us, so I chose to study and build AI for both the digital and physical worlds. I raise my own bar — whether I’m solving a Rubik’s Cube or fixing a mission-critical app in production. I care about doing my work well and doing it right. I started with Python, grew into backend systems, and now craft LLM AI agents, vision models, and RAG pipelines for fast-moving teams. Always reaching for the next ridge just past my current map.",
   ],
   email: "rtiko001@ucr.edu",
   social: {
-    github: "https://github.com/yourusername",
-    linkedin: "https://linkedin.com/in/yourusername",
-    twitter: "https://twitter.com/yourusername",
+    github: "https://github.com/rohantikotekar",
+    linkedin: "https://www.linkedin.com/in/rohan-tikotekar/",
   },
 } as const;
+
+/**
+ * About — "Trail log" quick facts. A compact, scannable summary of who/where
+ * the hiker is right now, drawn from the resume.
+ */
+export type QuickFact = {
+  label: string;
+  value: string;
+};
+
+export const quickFacts: QuickFact[] = [
+  {
+    label: "Currently",
+    value: "AI Engineer · Trustworthy Autonomous Systems Lab, UC Riverside",
+  },
+  {
+    label: "Education",
+    value: "M.S. Computer Science, UC Riverside",
+  },
+  {
+    label: "Based in",
+    value: "San Francisco, California",
+  },
+  {
+    label: "Focus",
+    value: "Vision-Language Models · LLM Agents · Full-Stack",
+  },
+];
 
 /**
  * Navigation + trail stages. `id` must match each section's element id.
@@ -43,67 +68,6 @@ export const sections = [
 
 export type SectionMeta = (typeof sections)[number];
 
-export type Experience = {
-  role: string;
-  org: string;
-  period: string;
-  type: "work" | "education";
-  description: string;
-  highlights: string[];
-};
-
-export const experiences: Experience[] = [
-  {
-    role: "Senior AI Engineer",
-    org: "Acme Intelligence",
-    period: "2023 — Present",
-    type: "work",
-    description:
-      "Lead engineer on a team building large-language-model products used by thousands of customers.",
-    highlights: [
-      "Designed a retrieval-augmented generation pipeline that cut hallucinations by 40%.",
-      "Shipped an internal evaluation framework adopted across three product teams.",
-      "Mentored four engineers and established the team's ML code-review standards.",
-    ],
-  },
-  {
-    role: "Machine Learning Engineer",
-    org: "Northbound Labs",
-    period: "2021 — 2023",
-    type: "work",
-    description:
-      "Built and deployed production ML services for recommendation and forecasting.",
-    highlights: [
-      "Took a recommendation model from notebook to production serving 1M+ daily requests.",
-      "Reduced inference latency 3x through model distillation and caching.",
-    ],
-  },
-  {
-    role: "Software Engineer",
-    org: "Trailhead Studio",
-    period: "2019 — 2021",
-    type: "work",
-    description:
-      "Full-stack development across web platforms with a focus on data-heavy interfaces.",
-    highlights: [
-      "Owned the analytics dashboard used by every customer-facing team.",
-      "Introduced a component library that halved feature delivery time.",
-    ],
-  },
-  {
-    role: "B.S. in Computer Science",
-    org: "State University",
-    period: "2015 — 2019",
-    type: "education",
-    description:
-      "Specialized in machine learning and human-computer interaction.",
-    highlights: [
-      "Undergraduate research in neural sequence models.",
-      "Graduated with honors; teaching assistant for Algorithms.",
-    ],
-  },
-];
-
 /**
  * Career Timeline — the horizontal trail of major stops. Replace photos by
  * dropping files in /public and setting `photo`; otherwise a themed
@@ -118,7 +82,6 @@ export type CareerStop = {
   summary: string;
   accomplishments: string[];
   skills: string[];
-  photo?: string;
 };
 
 export const careerStops: CareerStop[] = [
@@ -135,6 +98,21 @@ export const careerStops: CareerStop[] = [
       "First hands-on projects in software and applied AI.",
     ],
     skills: ["Python", "Java", "Data Structures", "Full-Stack"],
+  },
+  {
+    id: "ml-ra-viit",
+    title: "ML Research Assistant",
+    org: "VIIT, Savitribai Phule Pune University, Pune, India",
+    period: "Aug 2022 — May 2023",
+    kind: "research",
+    summary:
+      "Where the research trail began — applied computer-vision research on robust facial detection and recognition for occluded and profile faces.",
+    accomplishments: [
+      "Built a deep-learning pipeline (image preprocessing, patch splitting, EDSR-GAN super-resolution) reaching 93.2% detection and 96% recognition accuracy.",
+      "Combined CNNs with Haar Cascade classifiers to handle profile and partially occluded faces.",
+      "Published and presented the work at the Scopus-indexed 9th ICICT 2024, London (Springer Nature).",
+    ],
+    skills: ["Computer Vision", "CNNs", "GANs", "PyTorch"],
   },
   {
     id: "atlas-copco",
@@ -173,10 +151,11 @@ export const careerStops: CareerStop[] = [
     period: "2024 — 2025",
     kind: "education",
     summary:
-      "A higher ridgeline — a master's focused on AI, ML, reinforcement learning, and NLP.",
+      "A higher ridgeline — a master's at UC Riverside focused on AI, ML, reinforcement learning, and NLP.",
     accomplishments: [
-      "Graduate coursework in AI, ML, RL, NLP, and data science.",
-      "Earned AWS, Docker, and Kubernetes certifications along the way.",
+      "Core AI coursework: Artificial Intelligence, Machine Learning, Reinforcement Learning, Natural Language Processing, Data Science, Data Mining, and Data Science Ethics.",
+      "Systems & cloud track: Full-Stack Web Development, Cloud Computing, DevOps, and System Design.",
+      "Earned AWS Certified Cloud Practitioner plus hands-on Kubernetes and Docker DevOps certifications.",
     ],
     skills: ["Machine Learning", "Deep Learning", "NLP", "Reinforcement Learning"],
   },
@@ -194,6 +173,76 @@ export const careerStops: CareerStop[] = [
       "Cut operational risk 30% with a confidence-modulated governance protocol.",
     ],
     skills: ["VLMs", "LLMs", "PyTorch", "Research"],
+  },
+];
+
+/**
+ * Experience — the resume-style work history (internships + research roles),
+ * shown as a dedicated section with full bullet points.
+ */
+export type WorkExperience = {
+  role: string;
+  org: string;
+  location: string;
+  period: string;
+  type: "Internship" | "Research" | "Full-time";
+  bullets: string[];
+  skills: string[];
+};
+
+export const experiences: WorkExperience[] = [
+  {
+    role: "AI Engineer — Graduate Student Researcher",
+    org: "Trustworthy Autonomous Systems Lab, UC Riverside",
+    location: "Riverside, CA",
+    period: "Apr 2025 — Dec 2025",
+    type: "Research",
+    bullets: [
+      "Designed a multi-modal analytical framework fusing Vision-Language Models (VLMs) with spatial data features to predict anomaly-intent thresholds across complex variables (submitted to IROS 2026).",
+      "Achieved 20% faster model convergence in LLMs vs. baseline statistical trends by integrating historical variance and feature-engineering data into the reasoning context.",
+      "Mitigated operational risk by 30% with a strict confidence-modulated governance protocol that shares execution controls between automated models and manual validators.",
+    ],
+    skills: ["VLMs", "LLMs", "PyTorch", "Research"],
+  },
+  {
+    role: "Software Engineer",
+    org: "Digital Vision Studios",
+    location: "Pune, India",
+    period: "Jan 2024 — Jun 2024",
+    type: "Internship",
+    bullets: [
+      "Engineered and delivered a high-concurrency ledger and secure transactional data system for 5,500+ active users under strict data-governance, integrity, and risk-mitigation standards.",
+      "Orchestrated a migration to a hybrid cloud architecture (AWS / DigitalOcean), scaling capacity to process 8,000+ daily analytical requests.",
+      "Automated workflows and built deployment guardrails with Docker, reducing delivery cycles from 2 hours to 15 minutes.",
+    ],
+    skills: ["Python", "AWS", "Docker", "System Design"],
+  },
+  {
+    role: "Software Engineer, AI",
+    org: "Atlas Copco",
+    location: "Pune, India",
+    period: "Jun 2023 — Dec 2023",
+    type: "Internship",
+    bullets: [
+      "Led the analysis, design, and delivery of an AI vision pipeline using YOLOv8 to validate manufacturing operations.",
+      "Achieved 92.5% defect-detection accuracy while reducing per-unit inspection time from 45 seconds to under 2 seconds.",
+      "Automated handwritten-checklist tracking with multimodal AI (image + text), reducing per-checklist processing from 5 minutes to under 1 minute (80% reduction).",
+      "Built a Dockerized MLOps pipeline and partnered with operations teams to deliver a full-stack warehouse management system (Django & React.js).",
+    ],
+    skills: ["YOLOv8", "Computer Vision", "Django", "React", "Docker"],
+  },
+  {
+    role: "ML Research Assistant (Computer Vision, ML)",
+    org: "VIIT, Savitribai Phule Pune University",
+    location: "Pune, India",
+    period: "Aug 2022 — May 2023",
+    type: "Research",
+    bullets: [
+      "Conducted applied research on robust facial detection and recognition for occluded and profile faces using Convolutional Neural Networks and Haar Cascade classifiers.",
+      "Engineered a deep-learning pipeline spanning image preprocessing, patch splitting, and EDSR-GAN super-resolution, improving detection accuracy to 93.2%.",
+      "Published and presented the work at the Scopus-indexed 9th ICICT 2024, London (Springer Nature).",
+    ],
+    skills: ["Computer Vision", "CNNs", "GANs", "PyTorch"],
   },
 ];
 
@@ -222,7 +271,7 @@ export const skillCategories: SkillCategory[] = [
     blurb: "The tongues I think and build in.",
     skills: [
       { name: "Python", slug: "python" },
-      { name: "Java" },
+      { name: "Java", slug: "openjdk" },
       { name: "TypeScript", slug: "typescript" },
     ],
   },
@@ -289,6 +338,8 @@ export type Project = {
   lesson?: string;
   github?: string;
   demo?: string;
+  /** Demo media shown in the case study — a clip or screenshot in /public. */
+  media?: { type: "video" | "image"; src: string; alt?: string };
   /** Grouped technology stack. */
   stack?: { label: string; items: string[] }[];
   /** Ordered architecture flow (each item is a stage in the pipeline). */
@@ -306,7 +357,13 @@ export const projects: Project[] = [
     tags: ["RAG", "GPT-4o", "Azure AI Search", "Cosmos DB"],
     featured: true,
     role: "AI Engineer",
-    github: "#",
+    github:
+      "https://github.com/rohantikotekar/GuardianRAG-Automated-Financial-Compliance-Auditing-Agent",
+    media: {
+      type: "image",
+      src: "/guardian-rag-architecture.png",
+      alt: "Guardian RAG architecture diagram",
+    },
     highlights: [
       "Dual-agent architecture for retrieval and fraud reasoning.",
       "Grounds analysis in enterprise data via Azure AI Search + Cosmos DB.",
@@ -332,7 +389,13 @@ export const projects: Project[] = [
     tags: ["GPT-4o", "Structured Outputs", "Automation", "LLMs"],
     featured: true,
     role: "AI Engineer",
-    github: "#",
+    github:
+      "https://github.com/rohantikotekar/ShopFloorIQ-Intelligent-Purchase-Order-Management-System",
+    media: {
+      type: "image",
+      src: "/shop-floor-iq-ui.png",
+      alt: "Purchase Order Management System UI",
+    },
     highlights: [
       "2.3s parsing latency at under $0.003 per email.",
       "Converts messy supplier emails into clean, actionable PO data.",
@@ -356,23 +419,16 @@ export const projects: Project[] = [
       "Autonomous AI agents that automate the DevOps lifecycle — generating Dockerfiles, Terraform files, and CI/CD configs end to end.",
     tags: ["LangChain", "LLaMA 3.1", "DevOps", "Agents"],
     role: "Builder",
-    github: "#",
+    github:
+      "https://github.com/rohantikotekar/CodeMates-Autonomous-Code-to-Cloud-Delivery",
+    media: {
+      type: "video",
+      src: "/code-mates-video.mp4",
+      alt: "CodeMates demo",
+    },
     highlights: [
       "Built on LLaMA-3.1-8B-Instant via LangChain.",
       "92% accuracy with under-30s pipeline generation.",
-    ],
-  },
-  {
-    title: "CartPilot",
-    blurb: "Your AI shopping companion",
-    description:
-      "An agentic RAG shopping assistant that delivers personalized recommendations, contextual search, and shopping insights.",
-    tags: ["Agentic RAG", "LLMs", "Recommendations"],
-    role: "Builder",
-    github: "#",
-    highlights: [
-      "Agentic RAG for personalized, contextual product discovery.",
-      "Surfaces insights to guide shopping decisions.",
     ],
   },
 ];
@@ -392,51 +448,26 @@ export const research = {
     "My research sits at the intersection of machine learning and robotics — teaching systems to perceive, reason, and act reliably in the messy real world. I'm especially drawn to grounding large models in physical context and making autonomous behavior interpretable and safe.",
   publications: [
     {
-      title:
-        "Grounded Perception for Robust Robotic Manipulation in Unstructured Environments",
-      venue: "Placeholder Conference on Robotics & Automation",
-      year: "2024",
+      title: "SATeMoMa: A Safe Assistive Teleoperation System for Mobile Manipulation",
+      venue: "Submitted to IROS 2026",
+      year: "2026",
       description:
-        "Introduces a perception pipeline that fuses vision-language grounding with classical control to improve manipulation success in cluttered, novel scenes.",
-      tags: ["Robotics", "Perception", "Vision-Language"],
-      link: "#",
+        "This system reduces operator workload during mobile manipulation tasks. It predicts the user's intent using a vision-language model, spatial features, motion patterns, and speech input. The system also estimates its confidence in each prediction. Based on this confidence, it switches between teleoperation, shared control, and autonomous assistance. Control Barrier Functions ensure safe, collision-free robot motion. In simulation, the system achieved an 86.7% task success rate with zero collisions.",
+      tags: ["Vision-Language Models", "Shared Autonomy", "Mobile Manipulation"],
+      link: "https://drive.google.com/file/d/1LavP3tnGekI0bAeaXt6BpHjuCQqjeNqH/view?usp=drive_link",
     },
     {
       title:
-        "Towards Interpretable Policies: Explaining Learned Control with Natural Language",
-      venue: "Placeholder Workshop on Trustworthy ML",
-      year: "2023",
+        "Facial Detection and Recognition of Partially Occluded and Profile Faces",
+      venue: "9th ICICT 2024, London · Springer Nature (Scopus-indexed)",
+      year: "2024",
       description:
-        "Proposes a method for generating faithful natural-language explanations of a learned control policy's decisions, evaluated on simulated navigation tasks.",
-      tags: ["Interpretability", "Reinforcement Learning", "LLMs"],
-      link: "#",
+        "This system improves face recognition for profile views, partially occluded faces, and low-quality CCTV footage. It first enhances images using patch-based super-resolution and sharpening techniques. Faces are then detected using Haar Cascade classifiers. A convolutional neural network (CNN) recognizes identities and is trained on faces from multiple angles with occlusion-based data augmentation. The system achieved 93.2% face detection accuracy and 96% face recognition accuracy.",
+      tags: ["Computer Vision", "CNNs", "Super-Resolution"],
+      link: "https://link.springer.com/chapter/10.1007/978-981-97-5035-1_29",
     },
   ] as Publication[],
 };
-
-export type SkillGroup = {
-  category: string;
-  items: string[];
-};
-
-export const skillGroups: SkillGroup[] = [
-  {
-    category: "AI & Machine Learning",
-    items: ["PyTorch", "TensorFlow", "LLMs & RAG", "Transformers", "scikit-learn", "MLOps"],
-  },
-  {
-    category: "Languages",
-    items: ["Python", "TypeScript", "JavaScript", "SQL", "Go"],
-  },
-  {
-    category: "Web & Frontend",
-    items: ["Next.js", "React", "Tailwind CSS", "Node.js", "Framer Motion"],
-  },
-  {
-    category: "Data & Infrastructure",
-    items: ["PostgreSQL", "Vector Databases", "Docker", "AWS", "Kubernetes"],
-  },
-];
 
 export type Achievement = {
   year: string;
@@ -446,26 +477,27 @@ export type Achievement = {
 
 export const achievements: Achievement[] = [
   {
-    year: "2024",
-    title: "Conference Speaker",
-    detail: "Presented work on grounded LLM systems at a national AI conference.",
+    year: "2026",
+    title: "IROS 2026 Submission",
+    detail:
+      "Co-authored a multi-modal VLM + spatial-data framework for anomaly-intent prediction, submitted to IROS 2026.",
+  },
+  {
+    year: "2025",
+    title: "M.S. in Computer Science",
+    detail:
+      "Completed a master's at UC Riverside focused on AI, ML, reinforcement learning, and NLP.",
+  },
+  {
+    year: "2025",
+    title: "Cloud & DevOps Certified",
+    detail:
+      "Earned AWS Certified Cloud Practitioner plus hands-on Kubernetes and Docker DevOps certifications.",
   },
   {
     year: "2023",
-    title: "Patent Filed",
-    detail: "Co-inventor on a patent for an efficient model-serving architecture.",
-  },
-  {
-    year: "2022",
-    title: "Hackathon Winner",
-    detail: "First place out of 80+ teams for an accessibility-focused ML tool.",
-  },
-  {
-    year: "2021",
-    title: "10k+ GitHub Stars",
-    detail: "Open-source contributions reaching a broad developer community.",
+    title: "92.5% Defect Detection",
+    detail:
+      "Shipped a YOLOv8 vision pipeline at Atlas Copco, cutting per-unit inspection from 45s to under 2s.",
   },
 ];
-
-/** Placeholder file path — drop a real resume in /public to wire this up. */
-export const resumeUrl = "/resume.pdf";

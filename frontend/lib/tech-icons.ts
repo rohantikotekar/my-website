@@ -1,5 +1,6 @@
 import {
   siPython,
+  siOpenjdk,
   siTypescript,
   siReact,
   siNodedotjs,
@@ -25,6 +26,7 @@ export type TechIcon = { title: string; hex: string; path: string };
 /** Brand logos (Simple Icons), keyed by slug used in the skills data. */
 export const techIcons: Record<string, TechIcon> = {
   python: siPython,
+  openjdk: siOpenjdk,
   typescript: siTypescript,
   react: siReact,
   nodedotjs: siNodedotjs,

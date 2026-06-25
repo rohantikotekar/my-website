@@ -29,14 +29,50 @@ Software Engineer AI - Atlas Copco, Pune, India                   					  06/2023
 per-checklist processing time from 5 mins to under 1 min (80% reduction).
 • Built and orchestrated an MLOps pipeline using Docker containers to ensure rigorous pre-production readiness.
 • Partnered with cross-functional operations teams to gather requirements, assess technical constraints, and build a full-stack warehouse management system (Django & React.js).
-		     
-PROJECTS
-Credit Card Fraud Analytical Forensics – Guardian RAG (GitHub)
-• Enterprise-grade dual-agent RAG pipeline (GPT-4o + Azure AI Search + Cosmos DB) to automate the analysis and detection of credit card fraud use cases.
-Purchase order management system (GitHub)
-• Streamlined communication for procurement teams using GPT-4o Structured Outputs to convert unstructured supplier emails into actionable Purchase Order data. ( 2.3s parsing latency at <$0.003/email).
-CodeMates: AI Agents for Code-to-Cloud (GitHub)
-• Developed autonomous AI agents (LLaMA-3.1-8B-Instant) using LangChain to automate DevOps lifecycle like building Dockerfiles, Terraform files and CI/CD configs (92% accuracy, <30s pipeline generation).
-CartPilot-Your-AI-Shopping-Companion (GitHub)
-• Developed an agentic RAG-shopping assistant for personalized recommendations, contextual search, and insights.
 
+ML Research Assistant (Computer Vision, ML)  - VIIT Pune                                                                   08/2022 - 05/2023 
+• Conducted applied research on robust facial detection and recognition systems targeting occluded and profile faces 
+ using Convolutional Neural Networks and Haar Cascade classifiers. 
+• Engineered a deep learning pipeline that included image preprocessing, patch splitting, and super-resolution via 
+ EDSR GAN, improving detection accuracy to 93.2%. 
+ • Presented the paper at Scopus Indexed Conference- 9th ICICT, 2024, London- published in Springer Nature
+
+PROJECTS
+Credit Card Fraud Analytical Forensics – Guardian RAG
+github: https://github.com/rohantikotekar/GuardianRAG-Automated-Financial-Compliance-Auditing-Agent
+• Enterprise-grade dual-agent RAG pipeline (GPT-4o + Azure AI Search + Cosmos DB) to automate the analysis and detection of credit card fraud use cases.
+Purchase order management system
+https://github.com/rohantikotekar/ShopFloorIQ-Intelligent-Purchase-Order-Management-System
+• Streamlined communication for procurement teams using GPT-4o Structured Outputs to convert unstructured supplier emails into actionable Purchase Order data. ( 2.3s parsing latency at <$0.003/email).
+CodeMates: AI Agents for Code-to-Cloud
+github: https://github.com/rohantikotekar/CodeMates-Autonomous-Code-to-Cloud-Delivery
+• Developed autonomous AI agents (LLaMA-3.1-8B-Instant) using LangChain to automate DevOps lifecycle like building Dockerfiles, Terraform files and CI/CD configs (92% accuracy, <30s pipeline generation).
+
+
+my Github:https://github.com/rohantikotekar
+my LinkedIn: https://www.linkedin.com/in/rohan-tikotekar/
+
+papers
+SATeMoMa: A Safe Assistive Teleoperation System for Mobile Manipulation
+link: https://drive.google.com/file/d/1LavP3tnGekI0bAeaXt6BpHjuCQqjeNqH/view?usp=drive_link
+
+Idea:
+SATeMoMa combines intent prediction and safety-aware shared autonomy to reduce operator workload during mobile manipulation tasks.
+
+Implementation:
+The system fuses a Vision-Language Model (VLM), spatial geometric features, user motion trends, and speech commands to estimate user intent and confidence. A confidence-based controller then switches between teleoperation, shared control, and autonomous assistance, while Control Barrier Functions (CBFs) enforce collision-free motion.
+
+Result:
+SATeMoMa achieved 86.7% task success with zero collisions in simulation, improved task efficiency, and reduced operator workload. It also reached intent predictions faster than a pure VLM-based approach.
+
+Facial Detection and Recognition of Partially Occluded and Profile Faces
+link: https://link.springer.com/chapter/10.1007/978-981-97-5035-1_29
+
+Idea:
+The paper aims to improve face recognition for profile faces, partially occluded faces, and low-quality CCTV images.
+
+Implementation:
+The pipeline enhances image quality using patch-based super-resolution and sharpening, detects faces with Haar Cascade classifiers, and recognizes identities using a CNN trained on multiple face angles and occlusion-based augmentations.
+
+Result:
+The system achieved 93.2% face detection accuracy and 96% face recognition accuracy, successfully recognizing profile faces and partially occluded faces in real-world scenarios.

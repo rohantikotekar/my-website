@@ -7,7 +7,7 @@ export function Achievements() {
   return (
     <Section
       id="achievements"
-      index="06"
+      index="07"
       stage="Scenic Overlooks"
       title="Views worth pausing for"
       intro="Milestones along the way — the overlooks where the climb paid off."

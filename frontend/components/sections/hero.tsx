@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 function Ridgeline() {
   return (
     <svg
-      className="absolute inset-x-0 bottom-0 h-[45%] w-full text-forest"
+      className="pointer-events-none absolute inset-x-0 bottom-0 h-[45%] w-full text-forest"
       viewBox="0 0 1440 320"
       preserveAspectRatio="none"
       aria-hidden
@@ -53,7 +53,7 @@ export function Hero() {
     >
       <Ridgeline />
 
-      <div className="mx-auto w-full max-w-5xl px-6 pt-24">
+      <div className="relative z-10 mx-auto w-full max-w-5xl px-6 pt-24">
         <motion.div
           variants={container}
           initial="hidden"

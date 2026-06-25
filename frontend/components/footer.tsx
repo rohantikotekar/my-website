@@ -1,5 +1,5 @@
 import { Mail, Mountain } from "lucide-react";
-import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/icons";
+import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { profile, sections } from "@/lib/data";
 
 const navItems = sections.filter((s) => s.id !== "hero");
@@ -7,8 +7,13 @@ const navItems = sections.filter((s) => s.id !== "hero");
 const socials = [
   { label: "GitHub", href: profile.social.github, Icon: GithubIcon },
   { label: "LinkedIn", href: profile.social.linkedin, Icon: LinkedinIcon },
-  { label: "Twitter", href: profile.social.twitter, Icon: TwitterIcon },
-  { label: "Email", href: `mailto:${profile.email}`, Icon: Mail },
+  {
+    label: "Email",
+    href: `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+      profile.email
+    )}`,
+    Icon: Mail,
+  },
 ];
 
 export function Footer() {
