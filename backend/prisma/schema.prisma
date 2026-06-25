@@ -1,0 +1,27 @@
+// Prisma schema for the portfolio backend.
+// Datasource uses Supabase Postgres: DATABASE_URL is the pooled connection
+// (PgBouncer, port 6543) used at runtime; DIRECT_URL is the direct connection
+// (port 5432) used for migrations.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+/// A message submitted through the website contact form.
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}

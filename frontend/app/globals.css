@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+/*
+  The Yosemite Trail — design system
+  Earth-toned, calm, modern. Four environmental themes cycle the mood of the
+  scene: Morning, Afternoon, Sunset, Night. Components consume tokens only, so
+  switching --data-theme re-skins the whole site.
+*/
+
+:root {
+  --radius: 0.75rem;
+  color-scheme: light;
+
+  /* Default = Afternoon (warm parchment) */
+  --background: #f7f4ec;
+  --foreground: #2b2a25;
+  --card: #fffdf8;
+  --card-foreground: #2b2a25;
+  --muted: #ece6d8;
+  --muted-foreground: #6b6557;
+  --border: #e0d8c6;
+  --input: #e0d8c6;
+  --ring: #4f6f52;
+
+  --forest: #3f5e4b;
+  --forest-deep: #2c4434;
+  --moss: #6e8b6a;
+  --granite: #8a8170;
+  --sky: #6f97a8;
+  --amber: #c98a3b;
+  --amber-soft: #e0b878;
+
+  --primary: var(--forest);
+  --primary-foreground: #f7f4ec;
+  --accent: var(--amber);
+  --accent-foreground: #2b2a25;
+
+  --glow-sky: rgba(111, 151, 168, 0.06);
+  --glow-amber: rgba(201, 138, 59, 0.05);
+}
+
+/* ---- Morning: cool, misty dawn ---- */
+:root[data-theme="morning"] {
+  color-scheme: light;
+  --background: #e6eef3;
+  --foreground: #273330;
+  --card: #f5fafb;
+  --card-foreground: #273330;
+  --muted: #d9e6ec;
+  --muted-foreground: #54696c;
+  --border: #c9d9e1;
+  --input: #c9d9e1;
+  --ring: #5a8f96;
+
+  --forest: #3a6f68;
+  --forest-deep: #294f49;
+  --moss: #6fa093;
+  --granite: #8696a0;
+  --sky: #5ba0bf;
+  --amber: #cf9a52;
+  --amber-soft: #e7c486;
+
+  --primary: var(--forest);
+  --primary-foreground: #f1f7f8;
+  --accent: var(--amber);
+  --accent-foreground: #273330;
+
+  --glow-sky: rgba(91, 160, 191, 0.18);
+  --glow-amber: rgba(207, 154, 82, 0.04);
+}
+
+/* ---- Afternoon: warm parchment (default) ---- */
+:root[data-theme="afternoon"] {
+  color-scheme: light;
+  /* slightly warmer & more saturated than night/morning for clear contrast */
+  --background: #f7f4ec;
+  --foreground: #2b2a25;
+  --card: #fffdf8;
+  --card-foreground: #2b2a25;
+  --muted: #ece6d8;
+  --muted-foreground: #6b6557;
+  --border: #e0d8c6;
+  --input: #e0d8c6;
+  --ring: #4f6f52;
+
+  --forest: #3f5e4b;
+  --forest-deep: #2c4434;
+  --moss: #6e8b6a;
+  --granite: #8a8170;
+  --sky: #6f97a8;
+  --amber: #c98a3b;
+  --amber-soft: #e0b878;
+
+  --primary: var(--forest);
+  --primary-foreground: #f7f4ec;
+  --accent: var(--amber);
+  --accent-foreground: #2b2a25;
+
+  --glow-sky: rgba(111, 151, 168, 0.06);
+  --glow-amber: rgba(201, 138, 59, 0.05);
+}
+
+/* ---- Sunset: golden hour, warm peach ---- */
+:root[data-theme="sunset"] {
+  color-scheme: light;
+  --background: #f8e6d2;
+  --foreground: #3a2a1d;
+  --card: #fdf1e1;
+  --card-foreground: #3a2a1d;
+  --muted: #efd7bd;
+  --muted-foreground: #876a4f;
+  --border: #e8ccac;
+  --input: #e8ccac;
+  --ring: #c0682f;
+
+  --forest: #51623f;
+  --forest-deep: #3a4a2c;
+  --moss: #93914f;
+  --granite: #a8825f;
+  --sky: #db8f5c;
+  --amber: #c2541f;
+  --amber-soft: #e69a52;
+
+  --primary: var(--forest);
+  --primary-foreground: #fbf2e6;
+  --accent: var(--amber);
+  --accent-foreground: #3a2a1d;
+
+  --glow-sky: rgba(219, 143, 92, 0.16);
+  --glow-amber: rgba(194, 84, 31, 0.13);
+}
+
+/* ---- Night: dark, moonlit ---- */
+:root[data-theme="night"] {
+  color-scheme: dark;
+  --background: #13171c;
+  --foreground: #e7eae7;
+  --card: #1b212a;
+  --card-foreground: #e7eae7;
+  --muted: #232b35;
+  --muted-foreground: #9ba7a3;
+  --border: #2b333d;
+  --input: #2b333d;
+  --ring: #7fae9c;
+
+  --forest: #6f9e8a;
+  --forest-deep: #587f6f;
+  --moss: #7faa8e;
+  --granite: #8a93a0;
+  --sky: #6f86a8;
+  --amber: #d9a35a;
+  --amber-soft: #e7c089;
+
+  --primary: var(--forest);
+  --primary-foreground: #14201a;
+  --accent: var(--amber);
+  --accent-foreground: #14201a;
+
+  --glow-sky: rgba(111, 134, 168, 0.12);
+  --glow-amber: rgba(217, 163, 90, 0.07);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-moss: var(--moss);
+  --color-granite: var(--granite);
+  --color-sky: var(--sky);
+  --color-amber: var(--amber);
+  --color-amber-soft: var(--amber-soft);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 0.25rem);
+  --radius-sm: calc(var(--radius) - 0.4rem);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  /* Smooth the palette change when cycling themes. Elements that define their
+     own transition (hover states, etc.) keep theirs thanks to class
+     specificity; only static surfaces use this fallback. */
+  *,
+  *::before,
+  *::after {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Ambient environmental wash — adapts per theme. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 20% 12%, var(--glow-sky), transparent 42%),
+      radial-gradient(circle at 85% 72%, var(--glow-amber), transparent 45%);
+  }
+
+  ::selection {
+    background-color: rgba(63, 94, 75, 0.18);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .trail-eyebrow {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--amber);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
