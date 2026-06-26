@@ -46,7 +46,7 @@ export const quickFacts: QuickFact[] = [
   },
   {
     label: "Focus",
-    value: "Vision-Language Models · LLM Agents · Full-Stack",
+    value: "LLM agents, RAG pipelines, Perception, Full-stack systems",
   },
 ];
 
