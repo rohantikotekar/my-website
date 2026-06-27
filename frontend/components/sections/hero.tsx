@@ -72,7 +72,7 @@ export function Hero() {
             variants={item}
             className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl"
           >
-            Hi, I&apos;m {profile.name}.
+            Hi, I&apos;m {profile.name}
             <span className="mt-2 block text-forest">{profile.role}.</span>
           </motion.h1>
 

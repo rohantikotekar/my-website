@@ -30,8 +30,8 @@ export function About() {
       title="A little about the hiker"
       intro="Where the trail enters the trees — the motivation and mindset behind the work."
     >
-      <div className="grid gap-12 lg:grid-cols-5">
-        <SectionReveal className="lg:col-span-3" delay={0.05}>
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+        <SectionReveal className="min-w-0 lg:col-span-3" delay={0.05}>
           <div className="space-y-4 text-base leading-relaxed text-foreground/90 sm:text-lg">
             {profile.about.map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
@@ -39,7 +39,7 @@ export function About() {
           </div>
         </SectionReveal>
 
-        <SectionReveal className="lg:col-span-2" delay={0.15}>
+        <SectionReveal className="min-w-0 lg:col-span-2" delay={0.15}>
           <div className="grid gap-4">
             {values.map(({ Icon, title, text }) => (
               <div

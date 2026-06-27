@@ -6,15 +6,18 @@
 
 export const profile = {
   name: "Rohan",
-  role: "An enthusiastic AI Engineer",
+  role: "Full-Stack AI Engineer",
   location: "San Francisco, CA",
   // Short one-liner used in the hero
   tagline:
     "I build AI systems that work in the real world — from LLM agents, Vision systems to the full-stack products that put them to use.",
   // Longer narrative for the About section
-  about: [
-    "I’m driven to build things that didn’t exist yesterday and to create real value through intelligence. I’ve always been fascinated by human intelligence and how we navigate the world around us, so I chose to study and build AI for both the digital and physical worlds. I raise my own bar — whether I’m solving a Rubik’s Cube or fixing a mission-critical app in production. I care about doing my work well and doing it right. I started with Python, grew into backend systems, and now craft LLM AI agents, vision models, and RAG pipelines for fast-moving teams. Always reaching for the next ridge just past my current map.",
-  ],
+  about: [ "I’m driven to build things that didn’t exist yesterday and to create real value through intelligence.",
+     "I’ve always been fascinated by human intelligence and how we navigate the world around us, so I chose to study and build AI for both the digital and physical worlds.", 
+     "I raise my own bar — whether I’m solving a Rubik’s Cube or fixing a mission-critical app in production.", 
+     "I care about doing my work well and doing it right.",
+      "I started with Python, grew into full-stack systems, and now craft LLM AI agents, vision models, and RAG pipelines for fast-moving teams.", 
+      "Always reaching for the next ridge just past my current map.", ],
   email: "rtiko001@ucr.edu",
   social: {
     github: "https://github.com/rohantikotekar",
@@ -34,7 +37,7 @@ export type QuickFact = {
 export const quickFacts: QuickFact[] = [
   {
     label: "Currently",
-    value: "AI Engineer · Trustworthy Autonomous Systems Lab, UC Riverside",
+    value: "AI Engineer SV · Trustworthy Autonomous Systems Lab, UC Riverside",
   },
   {
     label: "Education",
@@ -88,21 +91,22 @@ export const careerStops: CareerStop[] = [
   {
     id: "btech-pune",
     title: "B.Tech — IT",
-    org: "Savitribai Phule Pune University (VIIT), Pune, India",
+    org: "Savitribai Phule Pune University, Pune, India",
     period: "2020 — 2024",
     kind: "education",
     summary:
       "Where the trail began — a bachelor's in Information Technology, building a strong CS foundation and a first taste of applied AI.",
     accomplishments: [
-      "Coursework across algorithms, systems, full-stack, and ML.",
-      "First hands-on projects in software and applied AI.",
+      "Developed Computer Science fundamentals by taking coureses across Algorithms, Systems, CS Theory, Software Engineering and Machine Learning.",
+      "Attended my first VishwaCTF (Catch the Flag) cyber-security hackathon and developed foundations for web security and ethical hacking.",
+      "Part of diverse college clubs: Director of Professional Developmment at Rotaract, Founding Member of The Office of International Relations, Technical Content Writer at ITSF", 
     ],
     skills: ["Python", "Java", "Data Structures", "Full-Stack"],
   },
   {
     id: "ml-ra-viit",
     title: "ML Research Assistant",
-    org: "VIIT, Savitribai Phule Pune University, Pune, India",
+    org: "VIIT, Pune, India",
     period: "Aug 2022 — May 2023",
     kind: "research",
     summary:
@@ -116,7 +120,7 @@ export const careerStops: CareerStop[] = [
   },
   {
     id: "atlas-copco",
-    title: "Software Engineer, AI",
+    title: "Software Engineer @ Atlas Copco",
     org: "Atlas Copco, Pune, India",
     period: "Jun 2023 — Dec 2023",
     kind: "work",
@@ -131,7 +135,7 @@ export const careerStops: CareerStop[] = [
   },
   {
     id: "digital-vision",
-    title: "Software Engineer",
+    title: "Software Engineer @ AI startup",
     org: "Digital Vision Studios, Pune, India",
     period: "Jan 2024 — Jun 2024",
     kind: "work",
@@ -146,7 +150,7 @@ export const careerStops: CareerStop[] = [
   },
   {
     id: "ms-ucr",
-    title: "M.S. — Computer Science",
+    title: "MS Computer Science @ UCR",
     org: "University of California, Riverside",
     period: "2024 — 2025",
     kind: "education",
@@ -154,16 +158,16 @@ export const careerStops: CareerStop[] = [
       "A higher ridgeline — a master's at UC Riverside focused on AI, ML, reinforcement learning, and NLP.",
     accomplishments: [
       "Core AI coursework: Artificial Intelligence, Machine Learning, Reinforcement Learning, Natural Language Processing, Data Science, Data Mining, and Data Science Ethics.",
-      "Systems & cloud track: Full-Stack Web Development, Cloud Computing, DevOps, and System Design.",
       "Earned AWS Certified Cloud Practitioner plus hands-on Kubernetes and Docker DevOps certifications.",
+      "Continuing my research on facial detection, I got deep into research in Perception for Robotic and Autonomous Systems."
     ],
     skills: ["Machine Learning", "Deep Learning", "NLP", "Reinforcement Learning"],
   },
   {
     id: "tas-lab",
-    title: "AI Engineer (Graduate Researcher)",
+    title: "AI Engineer SV",
     org: "Trustworthy Autonomous Systems Lab, UC Riverside",
-    period: "Apr 2025 — Dec 2025",
+    period: "Apr 2025 — Present",
     kind: "research",
     summary:
       "The current ridgeline — fusing vision-language models with spatial data to make autonomous systems safer and more interpretable.",
@@ -172,7 +176,7 @@ export const careerStops: CareerStop[] = [
       "Achieved 20% faster LLM convergence by integrating historical variance into the reasoning context.",
       "Cut operational risk 30% with a confidence-modulated governance protocol.",
     ],
-    skills: ["VLMs", "LLMs", "PyTorch", "Research"],
+    skills: ["VLMs", "LLMs", "PyTorch"],
   },
 ];
 
@@ -192,7 +196,7 @@ export type WorkExperience = {
 
 export const experiences: WorkExperience[] = [
   {
-    role: "AI Engineer — Graduate Student Researcher",
+    role: "AI Engineer SV",
     org: "Trustworthy Autonomous Systems Lab, UC Riverside",
     location: "Riverside, CA",
     period: "Apr 2025 — Dec 2025",
@@ -202,7 +206,7 @@ export const experiences: WorkExperience[] = [
       "Achieved 20% faster model convergence in LLMs vs. baseline statistical trends by integrating historical variance and feature-engineering data into the reasoning context.",
       "Mitigated operational risk by 30% with a strict confidence-modulated governance protocol that shares execution controls between automated models and manual validators.",
     ],
-    skills: ["VLMs", "LLMs", "PyTorch", "Research"],
+    skills: ["VLMs", "LLMs", "PyTorch"],
   },
   {
     role: "Software Engineer",
@@ -233,7 +237,7 @@ export const experiences: WorkExperience[] = [
   },
   {
     role: "ML Research Assistant (Computer Vision, ML)",
-    org: "VIIT, Savitribai Phule Pune University",
+    org: "Vishwakarma Institute of Information Technology (VIIT)",
     location: "Pune, India",
     period: "Aug 2022 — May 2023",
     type: "Research",
@@ -255,6 +259,8 @@ export type Skill = {
   name: string;
   /** Simple Icons slug for the brand logo (optional). */
   slug?: string;
+  /** Path to a custom logo image in /public (takes precedence over `slug`). */
+  img?: string;
 };
 
 export type SkillCategory = {
@@ -289,8 +295,8 @@ export const skillCategories: SkillCategory[] = [
       { name: "Jenkins", slug: "jenkins" },
       { name: "Terraform", slug: "terraform" },
       { name: "Redis", slug: "redis" },
-      { name: "AWS" },
-      { name: "Azure" },
+      { name: "AWS", img: "/logos/aws.png" },
+      { name: "Azure", img: "/logos/azure-logo.png" },
       { name: "Git", slug: "git" },
     ],
   },
@@ -299,8 +305,8 @@ export const skillCategories: SkillCategory[] = [
     name: "Applied AI",
     blurb: "Putting models to work in real products.",
     skills: [
-      { name: "LangChain", slug: "langchain" },
-      { name: "LangGraph", slug: "langgraph" },
+      { name: "LangChain", img: "/logos/langchain.png" },
+      { name: "LangGraph", img: "/logos/langgraph.png" },
       { name: "LangSmith" },
       { name: "CrewAI", slug: "crewai" },
       { name: "Hugging Face", slug: "huggingface" },
@@ -320,10 +326,14 @@ export const skillCategories: SkillCategory[] = [
   },
 ];
 
+export type ProjectCategory = "Full-Stack AI" | "Machine Learning";
+
 export type Project = {
   title: string;
   blurb: string;
   description: string;
+  /** Which on-site group this project appears under. */
+  category: ProjectCategory;
   tags: string[];
   // Placeholder — wire up later
   href?: string;
@@ -350,9 +360,10 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Guardian RAG",
-    blurb: "Dual-agent RAG for credit-card fraud forensics",
+    category: "Full-Stack AI",
+    blurb: "RAG agent for financial-compliance audits",
     description:
-      "An enterprise-grade, dual-agent RAG pipeline that automates the analysis and detection of credit-card fraud use cases.",
+      "A RAG-based AI agent that automates financial-compliance audits using regulatory documents and company policies.",
     tags: ["RAG", "GPT-4o", "Azure AI Search", "Cosmos DB"],
     featured: true,
     role: "AI Engineer",
@@ -364,28 +375,29 @@ export const projects: Project[] = [
       alt: "Guardian RAG architecture diagram",
     },
     highlights: [
-      "Dual-agent architecture for retrieval and fraud reasoning.",
-      "Grounds analysis in enterprise data via Azure AI Search + Cosmos DB.",
-      "Automates investigation of complex fraud scenarios.",
+      "Built a RAG-based AI agent to automate financial-compliance audits using regulatory documents and company policies.",
+      "Developed document ingestion, vector search, and LLM pipelines to analyze credit-card transaction context and generate evidence-backed compliance findings.",
+      "Generated audit-ready reports with cited regulations, risk summaries, and compliance recommendations — reducing manual review effort by 80%+.",
     ],
     stack: [
-      { label: "Agents", items: ["GPT-4o", "Dual-agent"] },
-      { label: "Retrieval", items: ["Azure AI Search", "RAG"] },
-      { label: "Data", items: ["Cosmos DB", "Azure"] },
+      { label: "AI", items: ["GPT-4o", "LLM pipelines"] },
+      { label: "Retrieval", items: ["Vector search", "RAG"] },
+      { label: "Data", items: ["Azure AI Search", "Cosmos DB"] },
     ],
     architecture: [
-      "Transaction & case data",
-      "Azure AI Search retrieval",
-      "Dual-agent reasoning (GPT-4o)",
-      "Fraud analysis + verdict",
+      "Regulatory docs & policies",
+      "Document ingestion + vector search",
+      "LLM compliance analysis (GPT-4o)",
+      "Audit-ready report + recommendations",
     ],
   },
   {
-    title: "Purchase Order Management System",
-    blurb: "Turning supplier emails into structured POs",
+    title: "ShopFloorIQ",
+    category: "Full-Stack AI",
+    blurb: "Intelligent purchase-order management",
     description:
-      "Streamlines procurement by using GPT-4o Structured Outputs to convert unstructured supplier emails into actionable Purchase Order data.",
-    tags: ["GPT-4o", "Structured Outputs", "Automation", "LLMs"],
+      "An AI-powered system that automates purchase orders, invoice processing, approvals, and inventory tracking.",
+    tags: ["OCR", "NLP", "Automation", "Analytics"],
     featured: true,
     role: "AI Engineer",
     github:
@@ -393,29 +405,31 @@ export const projects: Project[] = [
     media: {
       type: "image",
       src: "/shop-floor-iq-ui.png",
-      alt: "Purchase Order Management System UI",
+      alt: "ShopFloorIQ dashboard",
     },
     highlights: [
-      "2.3s parsing latency at under $0.003 per email.",
-      "Converts messy supplier emails into clean, actionable PO data.",
-      "Cuts manual data entry for procurement teams.",
+      "Built an AI-powered system to automate purchase orders, invoice processing, approvals, and inventory tracking.",
+      "Developed OCR and NLP pipelines with 90%+ extraction accuracy for purchase orders and invoices.",
+      "Created analytics dashboards for supplier performance, order tracking, and procurement insights.",
     ],
     stack: [
-      { label: "AI", items: ["GPT-4o", "Structured Outputs"] },
+      { label: "AI", items: ["OCR", "NLP"] },
       { label: "Backend", items: ["Python", "FastAPI"] },
+      { label: "Insights", items: ["Analytics dashboards"] },
     ],
     architecture: [
-      "Unstructured supplier email",
-      "GPT-4o structured extraction",
-      "Validated Purchase Order data",
-      "Procurement workflow",
+      "Purchase orders & invoices",
+      "OCR + NLP extraction",
+      "Validation & approvals",
+      "Inventory + analytics dashboards",
     ],
   },
   {
     title: "CodeMates",
-    blurb: "AI agents for code-to-cloud DevOps",
+    category: "Full-Stack AI",
+    blurb: "Multi-agent code-to-cloud delivery",
     description:
-      "Autonomous AI agents that automate the DevOps lifecycle — generating Dockerfiles, Terraform files, and CI/CD configs end to end.",
+      "A multi-agent AI platform that automates code generation, testing, Dockerization, CI/CD, and cloud deployment.",
     tags: ["LangChain", "LLaMA 3.1", "DevOps", "Agents"],
     role: "Builder",
     github:
@@ -426,10 +440,79 @@ export const projects: Project[] = [
       alt: "CodeMates demo",
     },
     highlights: [
-      "Built on LLaMA-3.1-8B-Instant via LangChain.",
-      "92% accuracy with under-30s pipeline generation.",
+      "Built a multi-agent AI platform automating code generation, testing, Dockerization, CI/CD, and cloud deployment.",
+      "Orchestrated AI agents for coding, debugging, testing, documentation, and deployment — cutting manual deployment steps by 80%+.",
+      "Integrated GitHub, Docker, and CI/CD for one-click code-to-cloud deployment with automated validation.",
     ],
   },
+  {
+    title: "CourseScout",
+    category: "Full-Stack AI",
+    blurb: "Multi-agent academic discovery engine",
+    description:
+      "A multi-agent AI system using CrewAI, GPT-4, and Playwright to automate course discovery and personalized recommendations.",
+    tags: ["CrewAI", "GPT-4", "Playwright", "Web Scraping"],
+    role: "Builder",
+    github:
+      "https://github.com/rohantikotekar/CourseScout-Intelligent-Multi-Agent-Academic-Discovery-Engine",
+    media: {
+      type: "image",
+      src: "/course-scout-img.png",
+      alt: "CourseScout interface",
+    },
+    highlights: [
+      "Built a multi-agent AI system using CrewAI, GPT-4, and Playwright to automate course discovery and personalized recommendations.",
+      "Developed real-time web scraping and AI analysis, achieving <30s response time with ~94% course-relevance accuracy.",
+      "Automated course search and visual analysis using screenshots, cutting manual course-browsing time by ~90%.",
+    ],
+  },
+  // {
+  //   title: "Multi-Modal Object Detection",
+  //   blurb: "Perception for autonomous urban navigation",
+  //   description:
+  //     "A multi-modal object-detection pipeline for autonomous navigation in complex urban scenes, fusing sensor modalities for robust perception.",
+  //   tags: ["Computer Vision", "Multi-Modal", "Autonomous Driving"],
+  //   role: "Builder",
+  //   github:
+  //     "https://github.com/rohantikotekar/Multi-Modal-Object-Detection-for-Autonomous-Urban-Navigation",
+  // },
+  // {
+  //   title: "Odometry & Pose Estimation",
+  //   blurb: "Localization for autonomous vehicles",
+  //   description:
+  //     "Odometry and pose-estimation methods for autonomous vehicles — tracking position and orientation for reliable, drift-resistant localization.",
+  //   tags: ["Robotics", "Pose Estimation", "Autonomous Vehicles"],
+  //   role: "Builder",
+  //   github:
+  //     "https://github.com/rohantikotekar/Odometry-and-Pose-estimation-for-Autonomous-vehicles",
+  // },
+  // {
+  //   title: "Residual Policy Learning",
+  //   blurb: "RL for robotic manipulation",
+  //   description:
+  //     "Residual policy learning that augments a base controller with a learned residual policy to improve robotic-manipulation performance.",
+  //   tags: ["Reinforcement Learning", "Robotics", "Manipulation"],
+  //   role: "Builder",
+  //   github:
+  //     "https://github.com/rohantikotekar/Residual-Policy-Learning-for-Robotic-Manipulation",
+  // },
+  // Machine Learning projects — hidden for now.
+  // {
+  //   title: "JusticeGuard",
+  //   category: "Machine Learning",
+  //   blurb: "Bias mitigation in criminal risk assessment",
+  //   description:
+  //     "A fairness-aware ML pipeline on the COMPAS dataset that improves Statistical Parity Difference by 42% while maintaining 84% accuracy.",
+  //   tags: ["Responsible AI", "Fairness", "Explainability"],
+  //   role: "Builder",
+  //   github:
+  //     "https://github.com/rohantikotekar/JusticeGuard-Bias-Mitigation-in-Criminal-Risk-Assessment",
+  //   highlights: [
+  //     "Built a fairness-aware ML pipeline on the COMPAS dataset, improving Statistical Parity Difference by 42% while maintaining 84% accuracy.",
+  //     "Evaluated models with 8+ fairness and performance metrics — 0.86 ROC-AUC, 0.83 F1-score, and Equal Opportunity Difference.",
+  //     "Built an interactive SHAP/LIME dashboard to explain predictions and compare baseline vs. bias-mitigated models.",
+  //   ],
+  // },
 ];
 
 export type Publication = {

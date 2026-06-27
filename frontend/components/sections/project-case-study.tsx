@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import {
   ArrowLeft,
   ChevronRight,
@@ -26,17 +26,33 @@ export function ProjectCaseStudy({
 }) {
   const reduceMotion = useReducedMotion();
 
+  // Keep the latest onClose without re-running the mount effect.
+  const onCloseRef = useRef(onClose);
   useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
+
+  useEffect(() => {
+    // Push a history entry so the browser Back button (and gestures) closes the
+    // case study instead of leaving the page. Both the "Back to trail" button
+    // and Escape call history.back(), which fires popstate → onClose.
+    window.history.pushState({ projectCaseStudy: true }, "");
+
+    const onPop = () => onCloseRef.current();
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+      if (e.key === "Escape") window.history.back();
     };
+
+    window.addEventListener("popstate", onPop);
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
+
     return () => {
+      window.removeEventListener("popstate", onPop);
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [onClose]);
+  }, []);
 
   const linkExternal = (href?: string) =>
     href && href !== "#"
@@ -61,7 +77,7 @@ export function ProjectCaseStudy({
         <div className="mx-auto flex h-14 w-full max-w-4xl items-center justify-between px-6">
           <button
             type="button"
-            onClick={onClose}
+            onClick={() => window.history.back()}
             className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-forest"
           >
             <ArrowLeft className="size-4" />
@@ -111,7 +127,7 @@ export function ProjectCaseStudy({
           <div className="mt-8 flex aspect-video w-full items-center justify-center overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-forest/15 via-sky/10 to-amber/15">
             <div className="flex flex-col items-center gap-2 text-muted-foreground">
               <PlayCircle className="size-10 text-forest/70" />
-              <span className="text-sm">Demo media — drop a screenshot or clip here</span>
+              <span className="text-sm">Demo coming soon</span>
             </div>
           </div>
         )}

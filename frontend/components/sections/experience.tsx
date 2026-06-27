@@ -43,7 +43,9 @@ export function Experience() {
                 </div>
                 <div className="flex flex-col items-start gap-2 sm:items-end">
                   <Badge variant="amber">{job.period}</Badge>
-                  <Badge variant={TYPE_VARIANT[job.type]}>{job.type}</Badge>
+                  {job.type !== "Research" && (
+                    <Badge variant={TYPE_VARIANT[job.type]}>{job.type}</Badge>
+                  )}
                 </div>
               </div>
 

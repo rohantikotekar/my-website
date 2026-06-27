@@ -7,7 +7,10 @@ services:
     runtime: node
     rootDir: backend
     plan: free
-    buildCommand: npm install && npm run build
+    # --include=dev forces devDeps (typescript, prisma) to install even though
+    # Render sets NODE_ENV=production, which would otherwise skip them and break
+    # the TypeScript build.
+    buildCommand: npm install --include=dev && npm run build
     startCommand: npx prisma migrate deploy && node dist/index.js
     healthCheckPath: /health
     # Secrets are set in the Render dashboard (sync:false keeps them out of git).

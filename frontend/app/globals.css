@@ -210,6 +210,14 @@
 
   html {
     scroll-behavior: smooth;
+    /* Guard against any stray horizontal overflow widening the page on mobile,
+       which would shift content off-center and let the layout be panned.
+       `clip` contains it without breaking position: sticky or pinch-zoom. */
+    overflow-x: clip;
+  }
+
+  body {
+    overflow-x: clip;
   }
 
   body {

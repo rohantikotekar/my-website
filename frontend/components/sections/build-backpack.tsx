@@ -9,6 +9,18 @@ import { Section } from "@/components/section";
 import { cn } from "@/lib/utils";
 
 function TechLogo({ skill }: { skill: Skill }) {
+  // A custom logo image takes precedence over a Simple Icons slug.
+  if (skill.img) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={skill.img}
+        alt={skill.name}
+        className="size-7 shrink-0 rounded object-contain"
+      />
+    );
+  }
+
   const icon = skill.slug ? techIcons[skill.slug] : undefined;
 
   if (icon) {
@@ -44,15 +56,15 @@ export function BuildBackpack() {
       id="skills"
       index="06"
       stage="Gear"
-      title="What's in the pack"
+      title="Technical Skills & Tools"
       intro="Gear sorted into compartments. Open one to see the tools I carry."
     >
-      <div className="grid gap-6 lg:grid-cols-5">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
         {/* Compartments */}
-        <div className="rounded-2xl border border-border bg-card/60 p-5 lg:col-span-2">
+        <div className="min-w-0 rounded-2xl border border-border bg-card/60 p-5 lg:col-span-2">
           <div className="mb-4 flex items-center gap-2 text-muted-foreground">
             <Backpack className="size-5 text-forest" />
-            <span className="text-sm font-medium">Compartments</span>
+            <span className="text-sm font-medium">Technical Skills</span>
           </div>
 
           <div className="flex gap-2 overflow-x-auto pb-1 lg:flex-col lg:overflow-visible lg:pb-0">
@@ -100,7 +112,7 @@ export function BuildBackpack() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-2xl border border-border bg-card p-6 lg:col-span-3"
+            className="min-w-0 rounded-2xl border border-border bg-card p-6 lg:col-span-3"
           >
             <h3 className="font-serif text-2xl font-semibold">{active.name}</h3>
             <p className="mt-1 text-sm text-muted-foreground">{active.blurb}</p>
