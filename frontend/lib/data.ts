@@ -222,7 +222,7 @@ export const experiences: WorkExperience[] = [
     skills: ["Python", "AWS", "Docker", "System Design"],
   },
   {
-    role: "Software Engineer, AI",
+    role: "Software Engineer",
     org: "Atlas Copco",
     location: "Pune, India",
     period: "Jun 2023 — Dec 2023",
