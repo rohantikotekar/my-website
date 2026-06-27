@@ -110,7 +110,7 @@ export const careerStops: CareerStop[] = [
     period: "Aug 2022 — May 2023",
     kind: "research",
     summary:
-      "Where the research trail began — applied computer-vision research on robust facial detection and recognition for occluded and profile faces.",
+      "Where the research began — applied computer-vision research on robust facial detection and recognition for occluded and profile faces.",
     accomplishments: [
       "Built a deep-learning pipeline (image preprocessing, patch splitting, EDSR-GAN super-resolution) reaching 93.2% detection and 96% recognition accuracy.",
       "Combined CNNs with Haar Cascade classifiers to handle profile and partially occluded faces.",
