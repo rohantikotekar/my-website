@@ -67,7 +67,7 @@ export function BuildBackpack() {
             <span className="text-sm font-medium">Technical Skills</span>
           </div>
 
-          <div className="flex gap-2 overflow-x-auto pb-1 lg:flex-col lg:overflow-visible lg:pb-0">
+          <div className="grid grid-cols-2 gap-2 lg:flex lg:flex-col">
             {skillCategories.map((cat) => {
               const isActive = cat.id === activeId;
               return (
@@ -77,7 +77,7 @@ export function BuildBackpack() {
                   onClick={() => setActiveId(cat.id)}
                   aria-pressed={isActive}
                   className={cn(
-                    "flex w-full shrink-0 items-center justify-between gap-3 rounded-xl border p-4 text-left transition-all",
+                    "flex h-full w-full items-center justify-between gap-3 rounded-xl border p-4 text-left transition-all",
                     isActive
                       ? "border-amber/50 bg-amber/10 shadow-sm"
                       : "border-border bg-background hover:border-forest/40"
