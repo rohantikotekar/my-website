@@ -51,7 +51,7 @@ export const siteMeta = {
 
 /** Navbar brand wordmark + primary call-to-action. */
 export const nav = {
-  brand: "Rohan",
+  brand: "Rohan Tikotekar",
   cta: "Get in touch",
 } as const;
 
@@ -62,7 +62,7 @@ export const nav = {
 export const hero = {
   headline: {
     before: "Engineering",
-    highlight: "intelligence",
+    highlight: "Intelligence",
     after: ".",
   },
   primaryCta: { label: "View selected work", href: "#projects" },
@@ -91,7 +91,7 @@ export const sectionContent = {
     kicker: "Experience",
     title: "Shipping reliably in Production.",
     intro:
-      "Internships and research roles where the work got real — from the factory floor to the robotics lab.",
+      "Internships and Research roles — from the labs to startups and factory floors",
   },
   projects: {
     kicker: "Personal Projects",
@@ -135,7 +135,7 @@ export const sectionContent = {
  */
 export const heroSignals: { label: string; value: string }[] = [
   { label: "Currently", value: "AI Engineer · TAS Lab, UC Riverside" },
-  { label: "Focus", value: "VLMs · LLM Agents · RAG" },
+  { label: "Focus", value: "LLM Agents · RAG · Full-stack Web" },
   { label: "Education", value: "M.S. Computer Science" },
 ];
 

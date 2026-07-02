@@ -61,7 +61,7 @@ Used for the browser tab title, search engines, and link previews.
 The headline renders as three parts; the **highlight** shows in the accent gradient.
 
 - **Before:** Engineering
-- **Highlight (gradient):** intelligence
+- **Highlight (gradient):** Intelligence
 - **After:** .
 
 ### Tagline
@@ -76,7 +76,7 @@ I build AI systems that work in the real world — from LLM agents and vision-la
 ### Signals (label → value)
 
 - **Currently:** AI Engineer · TAS Lab, UC Riverside
-- **Focus:** VLMs · LLM Agents · RAG
+- **Focus:** LLM Agents · RAG · Full-stack Web
 - **Education:** M.S. Computer Science
 
 ### Metrics (value → label)
@@ -91,7 +91,7 @@ I build AI systems that work in the real world — from LLM agents and vision-la
 
 - **Kicker:** About
 - **Title:** The engineer behind the work.
-- **Title:** The motivation and mindset behind what I build.
+- **Intro:** The motivation and mindset behind what I build.
 - **Quick facts label:** Quick facts
 
 ### Narrative paragraphs
