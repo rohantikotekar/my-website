@@ -28,7 +28,7 @@ Used for the browser tab title, search engines, and link previews.
 
 ## Navigation
 
-- **Brand wordmark:** Rohan
+- **Brand wordmark:** Rohan Tikotekar
 - **Button (call to action):** Get in touch
 
 ### Menu labels (section → label shown in navbar/footer)
@@ -115,7 +115,7 @@ I build AI systems that work in the real world — from LLM agents and vision-la
 
 - **Kicker:** Experience
 - **Title:** Shipping reliably in Production.
-- **Intro:** Internships and research roles where the work got real — from the factory floor to the robotics lab.
+- **Intro:** Internships and Research roles — from the labs to startups and factory floors
 
 Each entry has: role, org, location, period, type (Internship / Research / Full-time),
 bullets, and skills.
