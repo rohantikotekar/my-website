@@ -134,7 +134,7 @@ export const sectionContent = {
  * Every number is drawn from the real experience below.
  */
 export const heroSignals: { label: string; value: string }[] = [
-  { label: "Currently", value: "AI Engineer · TAS Lab, UC Riverside" },
+  { label: "Currently", value: "AI Engineer · TASL, UC Riverside" },
   { label: "Focus", value: "LLM Agents · RAG · Full-stack Web" },
   { label: "Education", value: "M.S. Computer Science" },
 ];
