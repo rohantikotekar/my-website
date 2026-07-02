@@ -75,7 +75,7 @@ I build AI systems that work in the real world — from LLM agents and vision-la
 
 ### Signals (label → value)
 
-- **Currently:** AI Engineer · TAS Lab, UC Riverside
+- **Currently:** AI Engineer · TASL, UC Riverside
 - **Focus:** LLM Agents · RAG · Full-stack Web
 - **Education:** M.S. Computer Science
 
