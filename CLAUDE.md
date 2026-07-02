@@ -51,7 +51,7 @@ Do not implement backend functionality unless I explicitly request it.
 
 Follow the design described in `docs/theme.md`.
 
-The website represents my journey as an AI and Software Engineer. Visitors should feel like they are exploring a trail through Yosemite rather than scrolling through a traditional portfolio.
+The website is a minimal, premium, technical portfolio for an AI & Research Engineer — a high-end startup aesthetic (Apple / Linear / OpenAI / Vercel / Anthropic). Dark, restrained palette, large typography, generous whitespace, and subtle motion. No hiking, trail, or nature metaphors.
 
 ## Planned Features
 

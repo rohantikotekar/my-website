@@ -34,8 +34,8 @@ export function ProjectCaseStudy({
 
   useEffect(() => {
     // Push a history entry so the browser Back button (and gestures) closes the
-    // case study instead of leaving the page. Both the "Back to trail" button
-    // and Escape call history.back(), which fires popstate → onClose.
+    // case study instead of leaving the page. Both the "Back" button and Escape
+    // call history.back(), which fires popstate → onClose.
     window.history.pushState({ projectCaseStudy: true }, "");
 
     const onPop = () => onCloseRef.current();
@@ -73,17 +73,17 @@ export function ProjectCaseStudy({
       aria-label={`${project.title} case study`}
     >
       {/* Sticky top bar */}
-      <div className="sticky top-0 z-10 border-b border-border bg-background/85 backdrop-blur">
+      <div className="sticky top-0 z-10 border-b border-border bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex h-14 w-full max-w-4xl items-center justify-between px-6">
           <button
             type="button"
             onClick={() => window.history.back()}
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-forest"
+            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
           >
             <ArrowLeft className="size-4" />
-            Back to trail
+            Back to projects
           </button>
-          <span className="trail-eyebrow">Case Study</span>
+          <span className="kicker">Case Study</span>
         </div>
       </div>
 
@@ -91,11 +91,11 @@ export function ProjectCaseStudy({
         {/* Header */}
         <header className="pt-10">
           <div className="flex flex-wrap items-center gap-2">
-            {project.featured && <Badge variant="amber">Featured</Badge>}
-            {project.year && <Badge variant="forest">{project.year}</Badge>}
+            {project.featured && <Badge variant="accent">Featured</Badge>}
+            {project.year && <Badge>{project.year}</Badge>}
             {project.role && <Badge variant="outline">{project.role}</Badge>}
           </div>
-          <h2 className="mt-4 font-serif text-4xl font-semibold sm:text-5xl">
+          <h2 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
             {project.title}
           </h2>
           <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
@@ -105,7 +105,7 @@ export function ProjectCaseStudy({
 
         {/* Demo media */}
         {project.media ? (
-          <div className="mt-8 w-full overflow-hidden rounded-2xl border border-border">
+          <div className="mt-8 w-full overflow-hidden rounded-3xl border border-border">
             {project.media.type === "video" ? (
               <video
                 src={project.media.src}
@@ -119,14 +119,14 @@ export function ProjectCaseStudy({
               <img
                 src={project.media.src}
                 alt={project.media.alt ?? `${project.title} preview`}
-                className="aspect-video w-full bg-muted/30 object-contain"
+                className="aspect-video w-full bg-white/[0.02] object-contain"
               />
             )}
           </div>
         ) : (
-          <div className="mt-8 flex aspect-video w-full items-center justify-center overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-forest/15 via-sky/10 to-amber/15">
+          <div className="mt-8 flex aspect-video w-full items-center justify-center overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-accent/10 via-accent-2/10 to-white/[0.03]">
             <div className="flex flex-col items-center gap-2 text-muted-foreground">
-              <PlayCircle className="size-10 text-forest/70" />
+              <PlayCircle className="size-10 text-accent/70" />
               <span className="text-sm">Demo coming soon</span>
             </div>
           </div>
@@ -134,7 +134,7 @@ export function ProjectCaseStudy({
 
         {/* Overview */}
         <Block icon={Sparkles} title="Overview">
-          <p className="text-base leading-relaxed text-foreground/90">
+          <p className="text-base leading-relaxed text-soft">
             {project.description}
           </p>
         </Block>
@@ -150,9 +150,7 @@ export function ProjectCaseStudy({
                   </h4>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {group.items.map((item) => (
-                      <Badge key={item} variant="forest">
-                        {item}
-                      </Badge>
+                      <Badge key={item}>{item}</Badge>
                     ))}
                   </div>
                 </div>
@@ -167,11 +165,11 @@ export function ProjectCaseStudy({
             <div className="flex flex-wrap items-center gap-2">
               {project.architecture.map((step, i) => (
                 <div key={step} className="flex items-center gap-2">
-                  <span className="rounded-lg border border-border bg-card px-3 py-2 text-sm font-medium">
+                  <span className="rounded-xl border border-border bg-card px-3 py-2 text-sm font-medium">
                     {step}
                   </span>
                   {i < project.architecture!.length - 1 && (
-                    <ChevronRight className="size-4 shrink-0 text-amber" />
+                    <ChevronRight className="size-4 shrink-0 text-accent" />
                   )}
                 </div>
               ))}
@@ -185,7 +183,7 @@ export function ProjectCaseStudy({
             <ol className="space-y-3">
               {project.timeline.map((t) => (
                 <li key={t.phase} className="flex gap-4">
-                  <span className="w-24 shrink-0 text-sm font-semibold text-forest">
+                  <span className="w-24 shrink-0 text-sm font-semibold text-accent">
                     {t.phase}
                   </span>
                   <span className="text-sm text-muted-foreground">
@@ -200,10 +198,10 @@ export function ProjectCaseStudy({
         {/* Highlights */}
         {project.highlights?.length ? (
           <Block icon={Sparkles} title="Highlights">
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {project.highlights.map((h) => (
-                <li key={h} className="flex gap-2 text-foreground/90">
-                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-moss" />
+                <li key={h} className="flex gap-3 text-soft">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent/70" />
                   {h}
                 </li>
               ))}
@@ -215,23 +213,19 @@ export function ProjectCaseStudy({
         {(project.challenge || project.lesson) && (
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {project.challenge && (
-              <div className="rounded-xl border border-border bg-muted/40 p-5">
-                <h4 className="text-xs font-semibold uppercase tracking-wide text-amber">
-                  The climb
+              <div className="rounded-2xl border border-border bg-white/[0.03] p-5">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-accent">
+                  Challenge
                 </h4>
-                <p className="mt-2 text-sm text-foreground/90">
-                  {project.challenge}
-                </p>
+                <p className="mt-2 text-sm text-soft">{project.challenge}</p>
               </div>
             )}
             {project.lesson && (
-              <div className="rounded-xl border border-border bg-muted/40 p-5">
-                <h4 className="text-xs font-semibold uppercase tracking-wide text-forest">
-                  The view from the top
+              <div className="rounded-2xl border border-border bg-white/[0.03] p-5">
+                <h4 className="text-xs font-semibold uppercase tracking-wide text-accent">
+                  What I learned
                 </h4>
-                <p className="mt-2 text-sm text-foreground/90">
-                  {project.lesson}
-                </p>
+                <p className="mt-2 text-sm text-soft">{project.lesson}</p>
               </div>
             )}
           </div>
@@ -269,8 +263,8 @@ function Block({
 }) {
   return (
     <section className="mt-10 border-t border-border pt-8">
-      <h3 className="flex items-center gap-2 font-serif text-xl font-semibold">
-        <Icon className="size-5 text-forest" />
+      <h3 className="flex items-center gap-2 text-xl font-semibold tracking-tight">
+        <Icon className="size-5 text-accent" />
         {title}
       </h3>
       <div className="mt-4">{children}</div>

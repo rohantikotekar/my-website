@@ -1,84 +1,53 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowDown, MapPin } from "lucide-react";
-import { profile } from "@/lib/data";
+import { profile, heroSignals, heroMetrics, hero } from "@/lib/data";
 import { Button } from "@/components/ui/button";
-
-/** Layered ridgelines that fade in behind the hero — the distant Yosemite skyline. */
-function Ridgeline() {
-  return (
-    <svg
-      className="pointer-events-none absolute inset-x-0 bottom-0 h-[45%] w-full text-forest"
-      viewBox="0 0 1440 320"
-      preserveAspectRatio="none"
-      aria-hidden
-    >
-      <path
-        fill="currentColor"
-        fillOpacity="0.08"
-        d="M0,224 L120,197 C240,171,480,117,720,128 C960,139,1200,213,1320,250 L1440,288 L1440,320 L0,320 Z"
-      />
-      <path
-        fill="currentColor"
-        fillOpacity="0.14"
-        d="M0,288 L160,256 C320,224,640,160,960,176 C1120,184,1280,240,1360,266 L1440,293 L1440,320 L0,320 Z"
-      />
-    </svg>
-  );
-}
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
 
   const container = {
     hidden: {},
-    show: {
-      transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-    },
+    show: { transition: { staggerChildren: 0.1, delayChildren: 0.05 } },
   };
   const item = {
     hidden: reduceMotion ? {} : { opacity: 0, y: 20 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
     },
   };
 
   return (
     <section
       id="hero"
-      className="relative flex min-h-[100svh] items-center overflow-hidden"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pt-28 pb-20"
     >
-      <Ridgeline />
-
-      <div className="relative z-10 mx-auto w-full max-w-5xl px-6 pt-24">
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="max-w-3xl"
-        >
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-[1.05fr_0.95fr]">
+        {/* Left — headline */}
+        <motion.div variants={container} initial="hidden" animate="show">
           <motion.p
             variants={item}
-            className="trail-eyebrow flex items-center gap-2"
+            className="inline-flex items-center gap-2.5 rounded-full border border-border bg-white/5 px-3.5 py-1.5 text-sm text-soft"
           >
-            <MapPin className="size-3.5" aria-hidden />
-            {profile.location} · Trailhead
+            <span className="size-2 rounded-full bg-accent shadow-[0_0_12px_var(--accent)]" />
+            {profile.location} · {profile.role}
           </motion.p>
 
           <motion.h1
             variants={item}
-            className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl"
+            className="mt-6 text-[clamp(2.6rem,7vw,4.6rem)] font-bold leading-[0.98] tracking-tight"
           >
-            Hi, I&apos;m {profile.name}
-            <span className="mt-2 block text-forest">{profile.role}.</span>
+            {hero.headline.before}{" "}
+            <span className="text-gradient">{hero.headline.highlight}</span>
+            {hero.headline.after}
           </motion.h1>
 
           <motion.p
             variants={item}
-            className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
+            className="mt-6 max-w-xl text-lg leading-relaxed text-soft"
           >
             {profile.tagline}
           </motion.p>
@@ -88,27 +57,48 @@ export function Hero() {
             className="mt-9 flex flex-wrap items-center gap-3"
           >
             <Button asChild size="lg">
-              <a href="#projects">Explore my work</a>
+              <a href={hero.primaryCta.href}>{hero.primaryCta.label}</a>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="#summit">Get in touch</a>
+              <a href={hero.secondaryCta.href}>{hero.secondaryCta.label}</a>
             </Button>
           </motion.div>
         </motion.div>
-      </div>
 
-      {/* Scroll cue */}
-      {!reduceMotion && (
-        <motion.a
-          href="#about"
-          aria-label="Scroll to begin"
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+        {/* Right — profile snapshot card */}
+        <motion.aside
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          aria-label="Profile snapshot"
+          className="rounded-3xl border border-border bg-gradient-to-b from-white/[0.09] to-white/[0.04] p-7 shadow-[0_24px_80px_rgba(0,0,0,0.4)]"
         >
-          <ArrowDown className="size-5" />
-        </motion.a>
-      )}
+          <dl className="divide-y divide-border">
+            {heroSignals.map(({ label, value }) => (
+              <div key={label} className="py-4 first:pt-0 last:pb-0">
+                <dt className="text-xs uppercase tracking-wide text-muted-foreground">
+                  {label}
+                </dt>
+                <dd className="mt-1 font-medium text-foreground">{value}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <div className="mt-5 grid grid-cols-3 gap-3">
+            {heroMetrics.map(({ value, label }) => (
+              <div
+                key={label}
+                className="rounded-2xl border border-border bg-black/20 p-4"
+              >
+                <div className="text-2xl font-bold tracking-tight">{value}</div>
+                <div className="mt-1 text-[0.72rem] leading-snug text-muted-foreground">
+                  {label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.aside>
+      </div>
     </section>
   );
 }

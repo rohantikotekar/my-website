@@ -110,7 +110,7 @@ export function ContactForm() {
           <Input
             id="name"
             name="name"
-            placeholder="Jane Hiker"
+            placeholder="Jane Doe"
             autoComplete="name"
             defaultValue={state.values?.name}
             aria-invalid={!!state.errors?.name}
@@ -183,7 +183,7 @@ export function ContactForm() {
       {/* Status announcement */}
       <div aria-live="polite" className="min-h-5">
         {state.status === "success" && (
-          <p className="flex items-center gap-2 text-sm font-medium text-forest">
+          <p className="flex items-center gap-2 text-sm font-medium text-accent">
             <CheckCircle2 className="size-4" />
             {state.message}
           </p>

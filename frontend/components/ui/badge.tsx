@@ -3,14 +3,15 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const badgeVariants = cva(
-  "inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium transition-colors",
+  "inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium transition-colors",
   {
     variants: {
       variant: {
-        default: "border-transparent bg-muted text-muted-foreground",
-        forest: "border-forest/20 bg-forest/10 text-forest",
-        amber: "border-amber/30 bg-amber/10 text-amber",
-        outline: "border-border text-foreground",
+        // Subtle glassy chip — used for tech tags.
+        default: "border-border bg-white/5 text-soft",
+        // Cyan accent — used for featured / emphasis labels.
+        accent: "border-accent/30 bg-accent/10 text-accent",
+        outline: "border-border text-muted-foreground",
       },
     },
     defaultVariants: {

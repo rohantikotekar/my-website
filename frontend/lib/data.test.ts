@@ -6,7 +6,6 @@ import { dirname, join } from "node:path";
 import {
   profile,
   sections,
-  careerStops,
   experiences,
   projects,
   research,
@@ -69,13 +68,8 @@ test("project media files exist in /public", () => {
   }
 });
 
-test("career stops and experiences are well-formed and non-empty", () => {
-  assert.ok(careerStops.length > 0, "no career stops");
+test("experiences are well-formed and non-empty", () => {
   assert.ok(experiences.length > 0, "no experiences");
-  for (const s of careerStops) {
-    assert.ok(s.id && s.title && s.org && s.period, `incomplete career stop: ${s.id}`);
-    assert.ok(s.accomplishments.length > 0, `no accomplishments for ${s.id}`);
-  }
   for (const e of experiences) {
     assert.ok(e.role && e.org && e.period, `incomplete experience: ${e.role}`);
     assert.ok(e.bullets.length > 0, `no bullets for ${e.role}`);

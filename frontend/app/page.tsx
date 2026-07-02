@@ -1,25 +1,23 @@
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
-import { CareerTimeline } from "@/components/sections/career-timeline";
 import { Experience } from "@/components/sections/experience";
 import { Projects } from "@/components/sections/projects";
 import { Research } from "@/components/sections/research";
-import { BuildBackpack } from "@/components/sections/build-backpack";
+import { Skills } from "@/components/sections/skills";
 import { Achievements } from "@/components/sections/achievements";
-import { Summit } from "@/components/sections/summit";
+import { Contact } from "@/components/sections/contact";
 
 export default function Home() {
   return (
     <div className="relative">
       <Hero />
       <About />
-      <CareerTimeline />
       <Experience />
       <Projects />
       <Research />
-      <BuildBackpack />
+      <Skills />
       <Achievements />
-      <Summit />
+      <Contact />
     </div>
   );
 }

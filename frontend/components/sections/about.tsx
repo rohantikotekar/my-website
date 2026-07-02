@@ -1,81 +1,38 @@
-import { Target, Leaf, Code2 } from "lucide-react";
-import { profile, quickFacts } from "@/lib/data";
+import { profile, quickFacts, sectionContent } from "@/lib/data";
 import { Section } from "@/components/section";
-import { SectionReveal } from "@/components/trail/section-reveal";
-
-const values = [
-  {
-    Icon: Target,
-    title: "Excellence",
-    text: "I hold my work to a high bar — done well and done right.",
-  },
-  {
-    Icon: Leaf,
-    title: "Growth",
-    text: "Every project leaves me more capable than the last.",
-  },
-  {
-    Icon: Code2,
-    title: "Craft",
-    text: "Clean, considered engineering — built to last.",
-  },
-];
+import { Reveal } from "@/components/reveal";
 
 export function About() {
+  const c = sectionContent.about;
   return (
-    <Section
-      id="about"
-      index="01"
-      stage="The Forest"
-      title="A little about the hiker"
-      intro="Where the trail enters the trees — the motivation and mindset behind the work."
-    >
-      <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
-        <SectionReveal className="min-w-0 lg:col-span-3" delay={0.05}>
-          <div className="space-y-4 text-base leading-relaxed text-foreground/90 sm:text-lg">
+    <Section id="about" kicker={c.kicker} title={c.title} intro={c.intro}>
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:items-start">
+        <Reveal className="min-w-0 lg:col-span-3" delay={0.05}>
+          <div className="space-y-6 text-base leading-relaxed text-soft sm:text-lg">
             {profile.about.map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
             ))}
           </div>
-        </SectionReveal>
+        </Reveal>
 
-        <SectionReveal className="min-w-0 lg:col-span-2" delay={0.15}>
-          <div className="grid gap-4">
-            {values.map(({ Icon, title, text }) => (
-              <div
-                key={title}
-                className="flex items-start gap-4 rounded-lg border border-border bg-card/60 p-5"
-              >
-                <span className="mt-0.5 inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-forest/10 text-forest">
-                  <Icon className="size-5" />
-                </span>
-                <div>
-                  <h3 className="text-base font-semibold">{title}</h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{text}</p>
+        <Reveal className="min-w-0 lg:col-span-2" delay={0.12}>
+          <div className="rounded-3xl border border-border bg-card p-6 sm:p-7">
+            <p className="kicker mb-5">{c.quickFactsLabel}</p>
+            <dl className="space-y-5">
+              {quickFacts.map(({ label, value }) => (
+                <div key={label} className="border-l-2 border-accent/40 pl-4">
+                  <dt className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    {label}
+                  </dt>
+                  <dd className="mt-1 text-sm font-medium text-foreground sm:text-base">
+                    {value}
+                  </dd>
                 </div>
-              </div>
-            ))}
+              ))}
+            </dl>
           </div>
-        </SectionReveal>
+        </Reveal>
       </div>
-
-      <SectionReveal delay={0.2}>
-        <div className="mt-12 rounded-xl border border-border bg-card/60 p-6 sm:p-8">
-          <p className="trail-eyebrow mb-6 text-muted-foreground/80">Trail log</p>
-          <dl className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
-            {quickFacts.map(({ label, value }) => (
-              <div key={label} className="border-l-2 border-amber/40 pl-4">
-                <dt className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                  {label}
-                </dt>
-                <dd className="mt-1 text-sm font-medium text-foreground/90 sm:text-base">
-                  {value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </SectionReveal>
     </Section>
   );
 }

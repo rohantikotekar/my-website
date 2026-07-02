@@ -1,195 +1,67 @@
 @import "tailwindcss";
 
 /*
-  The Yosemite Trail — design system
-  Earth-toned, calm, modern. Four environmental themes cycle the mood of the
-  scene: Morning, Afternoon, Sunset, Night. Components consume tokens only, so
-  switching --data-theme re-skins the whole site.
+  Design system — dark, minimal, premium.
+  A single restrained dark theme: near-black background, glassy white surfaces,
+  hairline borders, and a cyan→purple accent used sparingly. Components consume
+  tokens only, so the whole site stays visually consistent.
 */
 
 :root {
-  --radius: 0.75rem;
-  color-scheme: light;
-
-  /* Default = Afternoon (warm parchment) */
-  --background: #f7f4ec;
-  --foreground: #2b2a25;
-  --card: #fffdf8;
-  --card-foreground: #2b2a25;
-  --muted: #ece6d8;
-  --muted-foreground: #6b6557;
-  --border: #e0d8c6;
-  --input: #e0d8c6;
-  --ring: #4f6f52;
-
-  --forest: #3f5e4b;
-  --forest-deep: #2c4434;
-  --moss: #6e8b6a;
-  --granite: #8a8170;
-  --sky: #6f97a8;
-  --amber: #c98a3b;
-  --amber-soft: #e0b878;
-
-  --primary: var(--forest);
-  --primary-foreground: #f7f4ec;
-  --accent: var(--amber);
-  --accent-foreground: #2b2a25;
-
-  --glow-sky: rgba(111, 151, 168, 0.06);
-  --glow-amber: rgba(201, 138, 59, 0.05);
-}
-
-/* ---- Morning: cool, misty dawn ---- */
-:root[data-theme="morning"] {
-  color-scheme: light;
-  --background: #e6eef3;
-  --foreground: #273330;
-  --card: #f5fafb;
-  --card-foreground: #273330;
-  --muted: #d9e6ec;
-  --muted-foreground: #54696c;
-  --border: #c9d9e1;
-  --input: #c9d9e1;
-  --ring: #5a8f96;
-
-  --forest: #3a6f68;
-  --forest-deep: #294f49;
-  --moss: #6fa093;
-  --granite: #8696a0;
-  --sky: #5ba0bf;
-  --amber: #cf9a52;
-  --amber-soft: #e7c486;
-
-  --primary: var(--forest);
-  --primary-foreground: #f1f7f8;
-  --accent: var(--amber);
-  --accent-foreground: #273330;
-
-  --glow-sky: rgba(91, 160, 191, 0.18);
-  --glow-amber: rgba(207, 154, 82, 0.04);
-}
-
-/* ---- Afternoon: warm parchment (default) ---- */
-:root[data-theme="afternoon"] {
-  color-scheme: light;
-  /* slightly warmer & more saturated than night/morning for clear contrast */
-  --background: #f7f4ec;
-  --foreground: #2b2a25;
-  --card: #fffdf8;
-  --card-foreground: #2b2a25;
-  --muted: #ece6d8;
-  --muted-foreground: #6b6557;
-  --border: #e0d8c6;
-  --input: #e0d8c6;
-  --ring: #4f6f52;
-
-  --forest: #3f5e4b;
-  --forest-deep: #2c4434;
-  --moss: #6e8b6a;
-  --granite: #8a8170;
-  --sky: #6f97a8;
-  --amber: #c98a3b;
-  --amber-soft: #e0b878;
-
-  --primary: var(--forest);
-  --primary-foreground: #f7f4ec;
-  --accent: var(--amber);
-  --accent-foreground: #2b2a25;
-
-  --glow-sky: rgba(111, 151, 168, 0.06);
-  --glow-amber: rgba(201, 138, 59, 0.05);
-}
-
-/* ---- Sunset: golden hour, warm peach ---- */
-:root[data-theme="sunset"] {
-  color-scheme: light;
-  --background: #f8e6d2;
-  --foreground: #3a2a1d;
-  --card: #fdf1e1;
-  --card-foreground: #3a2a1d;
-  --muted: #efd7bd;
-  --muted-foreground: #876a4f;
-  --border: #e8ccac;
-  --input: #e8ccac;
-  --ring: #c0682f;
-
-  --forest: #51623f;
-  --forest-deep: #3a4a2c;
-  --moss: #93914f;
-  --granite: #a8825f;
-  --sky: #db8f5c;
-  --amber: #c2541f;
-  --amber-soft: #e69a52;
-
-  --primary: var(--forest);
-  --primary-foreground: #fbf2e6;
-  --accent: var(--amber);
-  --accent-foreground: #3a2a1d;
-
-  --glow-sky: rgba(219, 143, 92, 0.16);
-  --glow-amber: rgba(194, 84, 31, 0.13);
-}
-
-/* ---- Night: dark, moonlit ---- */
-:root[data-theme="night"] {
+  --radius: 1.25rem;
   color-scheme: dark;
-  --background: #13171c;
-  --foreground: #e7eae7;
-  --card: #1b212a;
-  --card-foreground: #e7eae7;
-  --muted: #232b35;
-  --muted-foreground: #9ba7a3;
-  --border: #2b333d;
-  --input: #2b333d;
-  --ring: #7fae9c;
 
-  --forest: #6f9e8a;
-  --forest-deep: #587f6f;
-  --moss: #7faa8e;
-  --granite: #8a93a0;
-  --sky: #6f86a8;
-  --amber: #d9a35a;
-  --amber-soft: #e7c089;
+  --background: #07080a;
+  --background-2: #0b0d11;
+  --foreground: #f4f7fb;
+  --soft: #ccd5df;
 
-  --primary: var(--forest);
-  --primary-foreground: #14201a;
-  --accent: var(--amber);
-  --accent-foreground: #14201a;
+  --card: rgba(255, 255, 255, 0.05);
+  --card-strong: rgba(255, 255, 255, 0.09);
+  --card-foreground: #f4f7fb;
 
-  --glow-sky: rgba(111, 134, 168, 0.12);
-  --glow-amber: rgba(217, 163, 90, 0.07);
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: #9aa6b2;
+
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.14);
+  --ring: #72e4ff;
+
+  --accent: #72e4ff;
+  --accent-2: #a78bfa;
+
+  --primary: #72e4ff;
+  --primary-foreground: #061015;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-soft: var(--soft);
+
   --color-card: var(--card);
+  --color-card-strong: var(--card-strong);
   --color-card-foreground: var(--card-foreground);
+
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-forest: var(--forest);
-  --color-forest-deep: var(--forest-deep);
-  --color-moss: var(--moss);
-  --color-granite: var(--granite);
-  --color-sky: var(--sky);
-  --color-amber: var(--amber);
-  --color-amber-soft: var(--amber-soft);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
 
   --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 0.25rem);
-  --radius-sm: calc(var(--radius) - 0.4rem);
+  --radius-md: calc(var(--radius) - 0.4rem);
+  --radius-sm: calc(var(--radius) - 0.7rem);
 }
 
 @layer base {
@@ -197,67 +69,72 @@
     border-color: var(--border);
   }
 
-  /* Smooth the palette change when cycling themes. Elements that define their
-     own transition (hover states, etc.) keep theirs thanks to class
-     specificity; only static surfaces use this fallback. */
-  *,
-  *::before,
-  *::after {
-    transition-property: background-color, border-color, color, fill, stroke;
-    transition-duration: 0.5s;
-    transition-timing-function: ease;
-  }
-
   html {
     scroll-behavior: smooth;
-    /* Guard against any stray horizontal overflow widening the page on mobile,
-       which would shift content off-center and let the layout be panned.
-       `clip` contains it without breaking position: sticky or pinch-zoom. */
+    /* Contain any stray horizontal overflow without breaking sticky/zoom. */
     overflow-x: clip;
   }
 
   body {
     overflow-x: clip;
-  }
-
-  body {
-    background-color: var(--background);
+    min-height: 100vh;
     color: var(--foreground);
+    background-color: var(--background);
+    background-image:
+      radial-gradient(circle at top left, rgba(114, 228, 255, 0.12), transparent 34rem),
+      radial-gradient(circle at 82% 6%, rgba(167, 139, 250, 0.11), transparent 32rem),
+      linear-gradient(180deg, #07080a 0%, #0b0d11 55%, #07080a 100%);
+    background-attachment: fixed;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
-  /* Ambient environmental wash — adapts per theme. */
+  /* Faint technical grid that fades out toward the page bottom. */
   body::before {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -1;
     pointer-events: none;
+    opacity: 0.3;
     background-image:
-      radial-gradient(circle at 20% 12%, var(--glow-sky), transparent 42%),
-      radial-gradient(circle at 85% 72%, var(--glow-amber), transparent 45%);
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: linear-gradient(to bottom, black, transparent 72%);
+    mask-image: linear-gradient(to bottom, black, transparent 72%);
   }
 
   ::selection {
-    background-color: rgba(63, 94, 75, 0.18);
+    background-color: rgba(114, 228, 255, 0.24);
+    color: #fff;
   }
 
-  h1, h2, h3, h4 {
-    font-family: var(--font-serif);
-    letter-spacing: -0.01em;
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.04em;
   }
 }
 
 @layer components {
-  .trail-eyebrow {
-    font-family: var(--font-sans);
+  /* Small uppercase section label. */
+  .kicker {
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    letter-spacing: 0.22em;
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--amber);
+    color: var(--accent);
+  }
+
+  /* Cyan→purple text used on key words in headings. */
+  .text-gradient {
+    background: linear-gradient(120deg, #ffffff, #9beaff 55%, #c4b5fd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }
 
@@ -268,6 +145,8 @@
   *,
   *::before,
   *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }

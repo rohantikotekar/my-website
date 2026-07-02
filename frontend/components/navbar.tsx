@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, X, Mountain } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { sections } from "@/lib/data";
+import { sections, nav } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme/theme-toggle";
 
-const navItems = sections.filter((s) => s.id !== "hero");
+const navItems = sections.filter((s) => s.id !== "hero" && s.id !== "contact");
+const contactNav = sections.find((s) => s.id === "contact");
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,19 +32,20 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
         scrolled
-          ? "border-b border-border/70 bg-background/80 backdrop-blur-md"
+          ? "border-b border-border bg-background/72 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       )}
     >
       <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
         <a
           href="#hero"
-          className="flex items-center gap-2 font-serif text-lg font-semibold tracking-tight"
+          className="text-lg font-bold tracking-tight"
+          aria-label="Home"
         >
-          <Mountain className="size-5 text-forest" aria-hidden />
-          <span>Trailhead</span>
+          {nav.brand}
+          <span className="text-accent">.</span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
@@ -52,7 +53,7 @@ export function Navbar() {
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
-                className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-forest"
+                className="rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item.nav}
               </a>
@@ -60,25 +61,21 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden items-center gap-2 md:flex">
-          <ThemeToggle />
-          <Button asChild size="sm">
-            <a href="#summit">Get in touch</a>
+        <div className="hidden md:flex">
+          <Button asChild variant="outline" size="sm">
+            <a href="#contact">{nav.cta}</a>
           </Button>
         </div>
 
-        <div className="flex items-center gap-1 md:hidden">
-          <ThemeToggle />
-          <button
-            type="button"
-            className="inline-flex size-10 items-center justify-center rounded-md text-foreground"
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-          >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
-        </div>
+        <button
+          type="button"
+          className="inline-flex size-10 items-center justify-center rounded-full text-foreground md:hidden"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+        >
+          {open ? <X className="size-5" /> : <Menu className="size-5" />}
+        </button>
       </nav>
 
       <AnimatePresence>
@@ -88,20 +85,17 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden border-t border-border bg-background/95 backdrop-blur-md md:hidden"
+            className="overflow-hidden border-t border-border bg-background/95 backdrop-blur-xl md:hidden"
           >
             <ul className="flex flex-col gap-1 px-6 py-4">
-              {navItems.map((item) => (
+              {[...navItems, ...(contactNav ? [contactNav] : [])].map((item) => (
                 <li key={item.id}>
                   <a
                     href={`#${item.id}`}
                     onClick={() => setOpen(false)}
-                    className="flex items-center justify-between rounded-md px-3 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+                    className="block rounded-xl px-3 py-3 text-sm font-medium text-foreground transition-colors hover:bg-white/5"
                   >
-                    <span>{item.nav}</span>
-                    <span className="text-xs text-muted-foreground">
-                      {item.label}
-                    </span>
+                    {item.nav}
                   </a>
                 </li>
               ))}

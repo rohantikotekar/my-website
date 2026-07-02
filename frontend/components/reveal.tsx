@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
-type SectionRevealProps = {
+type RevealProps = {
   children: ReactNode;
   className?: string;
   /** Stagger delay in seconds. */
@@ -13,15 +13,10 @@ type SectionRevealProps = {
 };
 
 /**
- * Reveals its children as they scroll into view — a gentle fade + rise,
- * like the next stretch of trail coming into view. Respects reduced motion.
+ * Reveals its children as they scroll into view — a subtle fade + rise.
+ * Respects reduced-motion preferences.
  */
-export function SectionReveal({
-  children,
-  className,
-  delay = 0,
-  y = 24,
-}: SectionRevealProps) {
+export function Reveal({ children, className, delay = 0, y = 20 }: RevealProps) {
   const reduceMotion = useReducedMotion();
 
   return (
@@ -30,11 +25,7 @@ export function SectionReveal({
       initial={reduceMotion ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "0px 0px -120px 0px" }}
-      transition={{
-        duration: 0.7,
-        delay,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </motion.div>

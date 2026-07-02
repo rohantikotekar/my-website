@@ -1,23 +1,23 @@
 /**
  * Central content for the portfolio.
- * Edit everything here — components read from this file so the site stays
- * easy to maintain. Replace placeholder copy with your real details.
+ * Components read from this file so the site stays easy to maintain — edit copy
+ * and data here rather than in the components.
  */
 
 export const profile = {
-  name: "Rohan",
-  role: "Full-Stack AI Engineer",
+  name: "Rohan Tikotekar",
+  role: "Full-stack AI engineer",
   location: "San Francisco, CA",
-  // Short one-liner used in the hero
+  // Short description used in the hero.
   tagline:
-    "I build AI systems that work in the real world — from LLM agents, Vision systems to the full-stack products that put them to use.",
-  // Longer narrative for the About section
-  about: [ "I’m driven to build things that didn’t exist yesterday and to create real value through intelligence.",
-     "I’ve always been fascinated by human intelligence and how we navigate the world around us, so I chose to study and build AI for both the digital and physical worlds.", 
-     "I raise my own bar — whether I’m solving a Rubik’s Cube or fixing a mission-critical app in production.", 
-     "I care about doing my work well and doing it right.",
-      "I started with Python, grew into full-stack systems, and now craft LLM AI agents, vision models, and RAG pipelines for fast-moving teams.", 
-      "Always reaching for the next ridge just past my current map.", ],
+    "I build AI systems that work in the real world — from LLM agents and vision-language models to the full-stack products that put them to use.",
+  // Longer narrative for the About section.
+  about: [
+    "I build production AI systems — LLM agents and RAG pipelines delivered as full-stack software products.",
+    "My experience spans fast-moving startups (one of the first hires), vision and software solutions for supply chains, and robotics for manufacturing.",
+    "I have delivered scalable backend systems, cloud infrastructure, and agentic workflows in production.",
+    "I enjoy taking AI products from 0 to 1, integrating them into existing workflows and eventually deploying them into real-world production.",
+  ],
   email: "rtiko001@ucr.edu",
   social: {
     github: "https://github.com/rohantikotekar",
@@ -26,9 +26,126 @@ export const profile = {
 } as const;
 
 /**
- * About — "Trail log" quick facts. A compact, scannable summary of who/where
- * the hiker is right now, drawn from the resume.
+ * Site-wide chrome & copy. Everything visible on the page is edited here so the
+ * markdown source of truth (docs/data.md) maps 1:1 to the rendered site.
  */
+
+/** SEO / social metadata (app/layout.tsx). */
+export const siteMeta = {
+  title: "Rohan Tikotekar — Full-stack AI engineer",
+  description:
+    "Portfolio of Rohan Tikotekar — AI & Research Engineer building LLM agents, vision-language systems, RAG pipelines, and full-stack AI products.",
+  keywords: [
+    "AI Engineer",
+    "Research Engineer",
+    "Machine Learning",
+    "LLM Agents",
+    "Computer Vision",
+    "RAG",
+    "Portfolio",
+  ],
+  ogTitle: "Rohan Tikotekar — AI & Research Engineer",
+  ogDescription:
+    "Building LLM agents, vision-language systems, and full-stack AI products that hold up in the real world.",
+} as const;
+
+/** Navbar brand wordmark + primary call-to-action. */
+export const nav = {
+  brand: "Rohan",
+  cta: "Get in touch",
+} as const;
+
+/**
+ * Hero copy. The headline is split so `highlight` renders with the accent
+ * gradient, framed by plain `before` / `after` text.
+ */
+export const hero = {
+  headline: {
+    before: "Engineering",
+    highlight: "intelligence",
+    after: ".",
+  },
+  primaryCta: { label: "View selected work", href: "#projects" },
+  secondaryCta: { label: "Get in touch", href: "#contact" },
+} as const;
+
+/** Footer blurb + fine print. */
+export const footer = {
+  blurb:
+    "AI & Research Engineer building AI systems that ship. Open to roles and collaborations.",
+  builtWith: "Built with Next.js & Tailwind CSS.",
+} as const;
+
+/**
+ * Per-section headings (kicker/title/intro) and small UI labels. Keyed by the
+ * section id used in `sections`. Research uses `research.intro` as its intro.
+ */
+export const sectionContent = {
+  about: {
+    kicker: "About",
+    title: "The engineer behind the work.",
+    intro: "The motivation and mindset behind what I build.",
+    quickFactsLabel: "Quick facts",
+  },
+  work: {
+    kicker: "Experience",
+    title: "Shipping reliably in Production.",
+    intro:
+      "Internships and research roles where the work got real — from the factory floor to the robotics lab.",
+  },
+  projects: {
+    kicker: "Personal Projects",
+    title: "Applying AI to real-world problems.",
+    intro:
+      "Each project leads with what it does, the technical depth behind it, and measurable outcomes.",
+    caseStudyLabel: "View case study",
+    featuredLabel: "Featured",
+  },
+  research: {
+    kicker: "Research",
+    title: "Publications over the years.",
+    publicationLabel: "Publication",
+    readPaperLabel: "Read paper",
+  },
+  skills: {
+    kicker: "Technical Stack",
+    title: "Tools behind the outcomes.",
+    intro:
+      "The technologies I reach for across AI, machine learning, and full-stack systems.",
+    itemsLabel: "items",
+  },
+  achievements: {
+    kicker: "Milestones",
+    title: "Selected highlights.",
+  },
+  contact: {
+    kicker: "Contact",
+    title: "Let's build useful AI.",
+    intro:
+      "Open to AI engineering roles, applied-research collaborations, and production AI systems that need both model depth and product execution.",
+    formHeading: "Start a conversation",
+    formSubtext: "Send a message and I'll get back to you.",
+    findMeLabel: "Find me",
+  },
+} as const;
+
+/**
+ * Hero "signals" + headline metrics shown in the profile snapshot card.
+ * Every number is drawn from the real experience below.
+ */
+export const heroSignals: { label: string; value: string }[] = [
+  { label: "Currently", value: "AI Engineer · TAS Lab, UC Riverside" },
+  { label: "Focus", value: "VLMs · LLM Agents · RAG" },
+  { label: "Education", value: "M.S. Computer Science" },
+];
+
+export const heroMetrics: { value: string; label: string }[] = [
+  { value: "92.5%", label: "defect detection accuracy" },
+  { value: "30%", label: "operational risk reduction" },
+  { value: "5.5k+", label: "users supported" },
+];
+
+/** About — compact, scannable quick facts drawn from the resume. */
 export type QuickFact = {
   label: string;
   value: string;
@@ -37,7 +154,7 @@ export type QuickFact = {
 export const quickFacts: QuickFact[] = [
   {
     label: "Currently",
-    value: "AI Engineer SV · Trustworthy Autonomous Systems Lab, UC Riverside",
+    value: "AI Engineer · Trustworthy Autonomous Systems Lab, UC Riverside",
   },
   {
     label: "Education",
@@ -49,140 +166,29 @@ export const quickFacts: QuickFact[] = [
   },
   {
     label: "Focus",
-    value: "LLM agents, RAG pipelines, Perception, Full-stack systems",
+    value: "LLM agents, RAG pipelines, perception, full-stack systems",
   },
 ];
 
 /**
- * Navigation + trail stages. `id` must match each section's element id.
- * `map` gives the landmark's position (0–100) on the mini Yosemite trail map,
- * winding from the trailhead (bottom) up to the summit (top).
+ * Navigation + section ids. `id` must match each section's element id; `nav` is
+ * the label shown in the navbar and footer.
  */
 export const sections = [
-  { id: "hero", label: "Trailhead", nav: "Home", map: { x: 22, y: 118 } },
-  { id: "about", label: "The Forest", nav: "About", map: { x: 44, y: 103 } },
-  { id: "experience", label: "Trail Markers", nav: "Experience", map: { x: 30, y: 88 } },
-  { id: "projects", label: "Campsites", nav: "Projects", map: { x: 56, y: 73 } },
-  { id: "research", label: "Field Notes", nav: "Research", map: { x: 36, y: 58 } },
-  { id: "skills", label: "Gear", nav: "Skills", map: { x: 58, y: 44 } },
-  { id: "achievements", label: "Scenic Overlooks", nav: "Milestones", map: { x: 34, y: 29 } },
-  { id: "summit", label: "The Summit", nav: "Contact", map: { x: 50, y: 14 } },
+  { id: "hero", nav: "Home" },
+  { id: "about", nav: "About" },
+  { id: "work", nav: "Work" },
+  { id: "projects", nav: "Projects" },
+  { id: "research", nav: "Research" },
+  { id: "skills", nav: "Skills" },
+  { id: "contact", nav: "Contact" },
 ] as const;
 
 export type SectionMeta = (typeof sections)[number];
 
 /**
- * Career Timeline — the horizontal trail of major stops. Replace photos by
- * dropping files in /public and setting `photo`; otherwise a themed
- * placeholder is shown.
- */
-export type CareerStop = {
-  id: string;
-  title: string;
-  org: string;
-  period: string;
-  kind: "education" | "work" | "research";
-  summary: string;
-  accomplishments: string[];
-  skills: string[];
-};
-
-export const careerStops: CareerStop[] = [
-  {
-    id: "btech-pune",
-    title: "B.Tech — IT",
-    org: "Savitribai Phule Pune University, Pune, India",
-    period: "2020 — 2024",
-    kind: "education",
-    summary:
-      "Where the trail began — a bachelor's in Information Technology, building a strong CS foundation and a first taste of applied AI.",
-    accomplishments: [
-      "Developed Computer Science fundamentals by taking coureses across Algorithms, Systems, CS Theory, Software Engineering and Machine Learning.",
-      "Attended my first VishwaCTF (Catch the Flag) cyber-security hackathon and developed foundations for web security and ethical hacking.",
-      "Part of diverse college clubs: Director of Professional Developmment at Rotaract, Founding Member of The Office of International Relations, Technical Content Writer at ITSF", 
-    ],
-    skills: ["Python", "Java", "Data Structures", "Full-Stack"],
-  },
-  {
-    id: "ml-ra-viit",
-    title: "ML Research Assistant",
-    org: "VIIT, Pune, India",
-    period: "Aug 2022 — May 2023",
-    kind: "research",
-    summary:
-      "Where the research began — applied computer-vision research on robust facial detection and recognition for occluded and profile faces.",
-    accomplishments: [
-      "Built a deep-learning pipeline (image preprocessing, patch splitting, EDSR-GAN super-resolution) reaching 93.2% detection and 96% recognition accuracy.",
-      "Combined CNNs with Haar Cascade classifiers to handle profile and partially occluded faces.",
-      "Published and presented the work at the Scopus-indexed 9th ICICT 2024, London (Springer Nature).",
-    ],
-    skills: ["Computer Vision", "CNNs", "GANs", "PyTorch"],
-  },
-  {
-    id: "atlas-copco",
-    title: "Software Engineer @ Atlas Copco",
-    org: "Atlas Copco, Pune, India",
-    period: "Jun 2023 — Dec 2023",
-    kind: "work",
-    summary:
-      "First professional summit — led an AI vision pipeline (YOLOv8) validating manufacturing operations on the factory floor.",
-    accomplishments: [
-      "92.5% defect-detection accuracy; cut inspection from 45s to under 2s.",
-      "Automated handwritten-checklist tracking with multimodal AI (image + text), an 80% time reduction.",
-      "Built a Dockerized MLOps pipeline and a full-stack warehouse system (Django & React).",
-    ],
-    skills: ["YOLOv8", "Computer Vision", "Django", "React", "Docker"],
-  },
-  {
-    id: "digital-vision",
-    title: "Software Engineer @ AI startup",
-    org: "Digital Vision Studios, Pune, India",
-    period: "Jan 2024 — Jun 2024",
-    kind: "work",
-    summary:
-      "A steady stretch of trail — engineered a high-concurrency transactional system and scaled it onto hybrid cloud.",
-    accomplishments: [
-      "Built a secure ledger and transactional system for 5,500+ active users.",
-      "Migrated to hybrid cloud (AWS / DigitalOcean), scaling to 8,000+ daily requests.",
-      "Cut delivery cycles from 2 hours to 15 minutes with Docker guardrails.",
-    ],
-    skills: ["Python", "AWS", "Docker", "System Design"],
-  },
-  {
-    id: "ms-ucr",
-    title: "MS Computer Science @ UCR",
-    org: "University of California, Riverside",
-    period: "2024 — 2025",
-    kind: "education",
-    summary:
-      "A higher ridgeline — a master's at UC Riverside focused on AI, ML, reinforcement learning, and NLP.",
-    accomplishments: [
-      "Core AI coursework: Artificial Intelligence, Machine Learning, Reinforcement Learning, Natural Language Processing, Data Science, Data Mining, and Data Science Ethics.",
-      "Earned AWS Certified Cloud Practitioner plus hands-on Kubernetes and Docker DevOps certifications.",
-      "Continuing my research on facial detection, I got deep into research in Perception for Robotic and Autonomous Systems."
-    ],
-    skills: ["Machine Learning", "Deep Learning", "NLP", "Reinforcement Learning"],
-  },
-  {
-    id: "tas-lab",
-    title: "AI Engineer SV",
-    org: "Trustworthy Autonomous Systems Lab, UC Riverside",
-    period: "Apr 2025 — Present",
-    kind: "research",
-    summary:
-      "The current ridgeline — fusing vision-language models with spatial data to make autonomous systems safer and more interpretable.",
-    accomplishments: [
-      "Designed a multi-modal framework fusing VLMs with spatial features to predict anomaly-intent thresholds (submitted to IROS 2026).",
-      "Achieved 20% faster LLM convergence by integrating historical variance into the reasoning context.",
-      "Cut operational risk 30% with a confidence-modulated governance protocol.",
-    ],
-    skills: ["VLMs", "LLMs", "PyTorch"],
-  },
-];
-
-/**
- * Experience — the resume-style work history (internships + research roles),
- * shown as a dedicated section with full bullet points.
+ * Experience — resume-style work and research history, shown as a vertical
+ * timeline with full bullet points.
  */
 export type WorkExperience = {
   role: string;
@@ -251,9 +257,9 @@ export const experiences: WorkExperience[] = [
 ];
 
 /**
- * Build Backpack — gear organized into four compartments. Each technology can
- * carry a `slug` matching a Simple Icons logo (see lib/tech-icons.ts); when
- * absent, a lettered monogram is shown instead.
+ * Skills — grouped into categories. Each technology can carry a `slug` matching
+ * a Simple Icons logo (see lib/tech-icons.ts); when absent, a lettered monogram
+ * is shown instead.
  */
 export type Skill = {
   name: string;
@@ -274,7 +280,7 @@ export const skillCategories: SkillCategory[] = [
   {
     id: "languages",
     name: "Languages",
-    blurb: "The tongues I think and build in.",
+    blurb: "The languages I think and build in.",
     skills: [
       { name: "Python", slug: "python" },
       { name: "Java", slug: "openjdk" },
@@ -335,11 +341,10 @@ export type Project = {
   /** Which on-site group this project appears under. */
   category: ProjectCategory;
   tags: string[];
-  // Placeholder — wire up later
   href?: string;
   repo?: string;
   featured?: boolean;
-  // Optional richer details shown in the full-screen case study
+  // Optional richer details shown in the full-screen case study.
   year?: string;
   role?: string;
   highlights?: string[];
@@ -365,7 +370,6 @@ export const projects: Project[] = [
     description:
       "A RAG-based AI agent that automates financial-compliance audits using regulatory documents and company policies.",
     tags: ["RAG", "GPT-4o", "Azure AI Search", "Cosmos DB"],
-    featured: true,
     role: "AI Engineer",
     github:
       "https://github.com/rohantikotekar/GuardianRAG-Automated-Financial-Compliance-Auditing-Agent",
@@ -398,7 +402,6 @@ export const projects: Project[] = [
     description:
       "An AI-powered system that automates purchase orders, invoice processing, approvals, and inventory tracking.",
     tags: ["OCR", "NLP", "Automation", "Analytics"],
-    featured: true,
     role: "AI Engineer",
     github:
       "https://github.com/rohantikotekar/ShopFloorIQ-Intelligent-Purchase-Order-Management-System",
@@ -466,53 +469,6 @@ export const projects: Project[] = [
       "Automated course search and visual analysis using screenshots, cutting manual course-browsing time by ~90%.",
     ],
   },
-  // {
-  //   title: "Multi-Modal Object Detection",
-  //   blurb: "Perception for autonomous urban navigation",
-  //   description:
-  //     "A multi-modal object-detection pipeline for autonomous navigation in complex urban scenes, fusing sensor modalities for robust perception.",
-  //   tags: ["Computer Vision", "Multi-Modal", "Autonomous Driving"],
-  //   role: "Builder",
-  //   github:
-  //     "https://github.com/rohantikotekar/Multi-Modal-Object-Detection-for-Autonomous-Urban-Navigation",
-  // },
-  // {
-  //   title: "Odometry & Pose Estimation",
-  //   blurb: "Localization for autonomous vehicles",
-  //   description:
-  //     "Odometry and pose-estimation methods for autonomous vehicles — tracking position and orientation for reliable, drift-resistant localization.",
-  //   tags: ["Robotics", "Pose Estimation", "Autonomous Vehicles"],
-  //   role: "Builder",
-  //   github:
-  //     "https://github.com/rohantikotekar/Odometry-and-Pose-estimation-for-Autonomous-vehicles",
-  // },
-  // {
-  //   title: "Residual Policy Learning",
-  //   blurb: "RL for robotic manipulation",
-  //   description:
-  //     "Residual policy learning that augments a base controller with a learned residual policy to improve robotic-manipulation performance.",
-  //   tags: ["Reinforcement Learning", "Robotics", "Manipulation"],
-  //   role: "Builder",
-  //   github:
-  //     "https://github.com/rohantikotekar/Residual-Policy-Learning-for-Robotic-Manipulation",
-  // },
-  // Machine Learning projects — hidden for now.
-  // {
-  //   title: "JusticeGuard",
-  //   category: "Machine Learning",
-  //   blurb: "Bias mitigation in criminal risk assessment",
-  //   description:
-  //     "A fairness-aware ML pipeline on the COMPAS dataset that improves Statistical Parity Difference by 42% while maintaining 84% accuracy.",
-  //   tags: ["Responsible AI", "Fairness", "Explainability"],
-  //   role: "Builder",
-  //   github:
-  //     "https://github.com/rohantikotekar/JusticeGuard-Bias-Mitigation-in-Criminal-Risk-Assessment",
-  //   highlights: [
-  //     "Built a fairness-aware ML pipeline on the COMPAS dataset, improving Statistical Parity Difference by 42% while maintaining 84% accuracy.",
-  //     "Evaluated models with 8+ fairness and performance metrics — 0.86 ROC-AUC, 0.83 F1-score, and Equal Opportunity Difference.",
-  //     "Built an interactive SHAP/LIME dashboard to explain predictions and compare baseline vs. bias-mitigated models.",
-  //   ],
-  // },
 ];
 
 export type Publication = {
@@ -521,20 +477,21 @@ export type Publication = {
   year: string;
   description: string;
   tags: string[];
-  /** Link to the paper / DOI — placeholder for now. */
+  /** Link to the paper / DOI. */
   link: string;
 };
 
 export const research = {
   intro:
-    "My research sits at the intersection of machine learning and robotics — teaching systems to perceive, reason, and act reliably in the messy real world. I'm especially drawn to grounding large models in physical context and making autonomous behavior interpretable and safe.",
+    "My research focuses on VLMs, VLAs, Perception for Robotics and Autonomous vehicles. I have published one first-author paper in Springer Nature journal and submitted one to IROS 2026. My work enables agents to understand, navigate, and act in real-world environments.",
   publications: [
     {
-      title: "SATeMoMa: A Safe Assistive Teleoperation System for Mobile Manipulation",
+      title:
+        "SATeMoMa: A Safe Assistive Teleoperation System for Mobile Manipulation",
       venue: "Submitted to IROS 2026",
       year: "2026",
       description:
-        "This system reduces operator workload during mobile manipulation tasks. It predicts the user's intent using a vision-language model, spatial features, motion patterns, and speech input. The system also estimates its confidence in each prediction. Based on this confidence, it switches between teleoperation, shared control, and autonomous assistance. Control Barrier Functions ensure safe, collision-free robot motion. In simulation, the system achieved an 86.7% task success rate with zero collisions.",
+        "A system that reduces operator workload during mobile manipulation. It predicts user intent using a vision-language model, spatial features, motion patterns, and speech, and estimates its confidence in each prediction. Based on that confidence it switches between teleoperation, shared control, and autonomous assistance, while Control Barrier Functions ensure safe, collision-free motion. In simulation it achieved an 86.7% task success rate with zero collisions.",
       tags: ["Vision-Language Models", "Shared Autonomy", "Mobile Manipulation"],
       link: "https://drive.google.com/file/d/1LavP3tnGekI0bAeaXt6BpHjuCQqjeNqH/view?usp=drive_link",
     },
@@ -544,7 +501,7 @@ export const research = {
       venue: "9th ICICT 2024, London · Springer Nature (Scopus-indexed)",
       year: "2024",
       description:
-        "This system improves face recognition for profile views, partially occluded faces, and low-quality CCTV footage. It first enhances images using patch-based super-resolution and sharpening techniques. Faces are then detected using Haar Cascade classifiers. A convolutional neural network (CNN) recognizes identities and is trained on faces from multiple angles with occlusion-based data augmentation. The system achieved 93.2% face detection accuracy and 96% face recognition accuracy.",
+        "A pipeline that improves face recognition for profile views, partially occluded faces, and low-quality CCTV footage. Images are first enhanced with patch-based super-resolution and sharpening; faces are detected with Haar Cascade classifiers; and a CNN trained on multi-angle faces with occlusion-based augmentation recognizes identities. The system achieved 93.2% detection and 96% recognition accuracy.",
       tags: ["Computer Vision", "CNNs", "Super-Resolution"],
       link: "https://link.springer.com/chapter/10.1007/978-981-97-5035-1_29",
     },
