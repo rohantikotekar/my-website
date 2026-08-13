@@ -66,7 +66,7 @@ The headline renders as three parts; the **highlight** shows in the accent gradi
 
 ### Tagline
 
-I build AI systems that work in the real world — from LLM agents and vision-language models to the full-stack products that put them to use.
+I build AI systems that work in the real world — from LLM agents, Computer Vision models to the full-stack products that put them to use.
 
 ### Buttons
 
@@ -75,8 +75,8 @@ I build AI systems that work in the real world — from LLM agents and vision-la
 
 ### Signals (label → value)
 
-- **Currently:** AI Engineer · TASL, UC Riverside
-- **Focus:** LLM Agents · RAG · Full-stack Web
+- **Currently:** Graduate AI/ML Research Assistant · Trustworthy Autonomous Systems Lab
+- **Focus:** LLM Agents · Computer Vision · Full-stack
 - **Education:** M.S. Computer Science
 
 ### Metrics (value → label)
@@ -96,8 +96,8 @@ I build AI systems that work in the real world — from LLM agents and vision-la
 
 ### Narrative paragraphs
 
-1. I build production AI systems — LLM agents and RAG pipelines delivered as full-stack software products.
-2. My experience spans fast-moving startups (one of the first hires), vision and software solutions for supply chains, and robotics for manufacturing.
+1. I build production AI systems — LLM agents and Computer Vision models delivered as full-stack software products.
+2. My experience spans fast-moving software startups, vision and software solutions for Atlas Copco, and robotics for manufacturing.
 3. I have delivered scalable backend systems, cloud infrastructure, and agentic workflows in production.
 4. I enjoy taking AI products from 0 to 1, integrating them into existing workflows and eventually deploying them into real-world production.
 
@@ -120,11 +120,11 @@ I build AI systems that work in the real world — from LLM agents and vision-la
 Each entry has: role, org, location, period, type (Internship / Research / Full-time),
 bullets, and skills.
 
-### 1. AI Engineer SV
+### 1. Graduate AI/ML Research Assistant
 
 - **Org:** Trustworthy Autonomous Systems Lab, UC Riverside
 - **Location:** Riverside, CA
-- **Period:** Apr 2025 — Dec 2025
+- **Period:** Apr 2025 — May 2026
 - **Type:** Research
 - **Bullets:**
   - Designed a multi-modal analytical framework fusing Vision-Language Models (VLMs) with spatial data features to predict anomaly-intent thresholds across complex variables (submitted to IROS 2026).

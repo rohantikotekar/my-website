@@ -10,11 +10,11 @@ export const profile = {
   location: "San Francisco, CA",
   // Short description used in the hero.
   tagline:
-    "I build AI systems that work in the real world — from LLM agents and vision-language models to the full-stack products that put them to use.",
+    "I build AI systems that work in the real world — from LLM agents, Computer Vision models to the full-stack products that put them to use.",
   // Longer narrative for the About section.
   about: [
-    "I build production AI systems — LLM agents and RAG pipelines delivered as full-stack software products.",
-    "My experience spans fast-moving startups (one of the first hires), vision and software solutions for supply chains, and robotics for manufacturing.",
+    "I build production AI systems — LLM agents and Computer Vision models delivered as full-stack software products.",
+    "My experience spans fast-moving software startups, vision and software solutions for Atlas Copco, and robotics for manufacturing.",
     "I have delivered scalable backend systems, cloud infrastructure, and agentic workflows in production.",
     "I enjoy taking AI products from 0 to 1, integrating them into existing workflows and eventually deploying them into real-world production.",
   ],
@@ -134,8 +134,8 @@ export const sectionContent = {
  * Every number is drawn from the real experience below.
  */
 export const heroSignals: { label: string; value: string }[] = [
-  { label: "Currently", value: "AI Engineer · TASL, UC Riverside" },
-  { label: "Focus", value: "LLM Agents · RAG · Full-stack Web" },
+  { label: "Currently", value: "Graduate AI/ML Research Assistant · Trustworthy Autonomous Systems Lab" },
+  { label: "Focus", value: "LLM Agents · Computer Vision · Full-stack" },
   { label: "Education", value: "M.S. Computer Science" },
 ];
 
@@ -154,7 +154,7 @@ export type QuickFact = {
 export const quickFacts: QuickFact[] = [
   {
     label: "Currently",
-    value: "AI Engineer · Trustworthy Autonomous Systems Lab, UC Riverside",
+    value: "Graduate AI/ML Research Assistant · Trustworthy Autonomous Systems Lab, UC Riverside",
   },
   {
     label: "Education",
@@ -202,10 +202,10 @@ export type WorkExperience = {
 
 export const experiences: WorkExperience[] = [
   {
-    role: "AI Engineer SV",
+    role: "Graduate AI/ML Research Assistant",
     org: "Trustworthy Autonomous Systems Lab, UC Riverside",
     location: "Riverside, CA",
-    period: "Apr 2025 — Dec 2025",
+    period: "Apr 2025 — May 2026",
     type: "Research",
     bullets: [
       "Designed a multi-modal analytical framework fusing Vision-Language Models (VLMs) with spatial data features to predict anomaly-intent thresholds across complex variables (submitted to IROS 2026).",
