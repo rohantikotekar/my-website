@@ -204,7 +204,7 @@ export const experiences: WorkExperience[] = [
     role: "Graduate AI/ML Research Assistant",
     org: "Trustworthy Autonomous Systems Lab, UC Riverside",
     location: "Riverside, CA",
-    period: "Apr 2025 — May 2026",
+    period: "Apr 2025 — Jun 2026",
     type: "Research",
     bullets: [
       "Designed a multi-modal analytical framework fusing Vision-Language Models (VLMs) with spatial data features to predict anomaly-intent thresholds across complex variables (submitted to IROS 2026).",

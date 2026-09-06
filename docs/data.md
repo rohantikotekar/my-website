@@ -81,7 +81,7 @@ not shown on the page.
 
 - **Org:** Trustworthy Autonomous Systems Lab, UC Riverside
 - **Location:** Riverside, CA
-- **Period:** Apr 2025 — May 2026
+- **Period:** Apr 2025 — Jun 2026
 - **Type:** Research
 - **Bullets:**
   - Designed a multi-modal analytical framework fusing Vision-Language Models (VLMs) with spatial data features to predict anomaly-intent thresholds across complex variables (submitted to IROS 2026).
