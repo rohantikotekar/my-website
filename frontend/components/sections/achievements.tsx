@@ -5,7 +5,7 @@ import { Reveal } from "@/components/reveal";
 export function Achievements() {
   const c = sectionContent.achievements;
   return (
-    <Section id="achievements" kicker={c.kicker} title={c.title}>
+    <Section id="achievements" title={c.title}>
       <div className="grid gap-4 sm:grid-cols-2">
         {achievements.map((item, i) => (
           <Reveal

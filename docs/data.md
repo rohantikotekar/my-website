@@ -6,11 +6,17 @@ Edit values here and tell me to "sync" — I'll apply them into `frontend/lib/da
 
 - Keep the headings and sub-headings as-is so the mapping stays clear.
 - Sections are ordered top-to-bottom exactly as they appear on the page.
-- Under list-style sections (Experience, Projects, etc.), each numbered/dashed
-  item maps to one entry in the code.
+- Under list-style sections (Experience, Skills), each numbered/dashed item maps
+  to one entry in the code.
 - Leave a field blank to make it empty; delete a whole item to remove it.
-- **Kicker** = the small uppercase label above a section title.
-- **Intro** = the supporting sentence under a section title.
+
+**The page is deliberately minimal:** navbar → name + two-paragraph intro →
+experience bullets → education → technical skills → contact. Nothing else
+renders. Content for sections that are no longer on the page is preserved at the
+bottom under [Not currently on the page](#not-currently-on-the-page).
+
+The navbar carries a light/dark theme toggle. Dark is the default; a visitor's
+choice is remembered, and first-time visitors get whichever their OS prefers.
 
 ---
 
@@ -18,7 +24,7 @@ Edit values here and tell me to "sync" — I'll apply them into `frontend/lib/da
 
 Used for the browser tab title, search engines, and link previews.
 
-- **Title:** Rohan Tikotekar — Full-stack AI engineer
+- **Title:** Rohan Tikotekar Website
 - **Description:** Portfolio of Rohan Tikotekar — AI & Research Engineer building LLM agents, vision-language systems, RAG pipelines, and full-stack AI products.
 - **Keywords:** AI Engineer, Research Engineer, Machine Learning, LLM Agents, Computer Vision, RAG, Portfolio
 - **Social share title:** Rohan Tikotekar — AI & Research Engineer
@@ -34,10 +40,8 @@ Used for the browser tab title, search engines, and link previews.
 ### Menu labels (section → label shown in navbar/footer)
 
 - **hero:** Home
-- **about:** About
-- **work:** Work
-- **projects:** Projects
-- **research:** Research
+- **work:** Experience
+- **education:** Education
 - **skills:** Skills
 - **contact:** Contact
 
@@ -46,79 +50,32 @@ Used for the browser tab title, search engines, and link previews.
 ## Profile
 
 - **Name:** Rohan Tikotekar
-- **Role:** Full-stack AI engineer
 - **Location:** San Francisco, CA
-- **Email:** rtiko001@ucr.edu
+- **Email:** tikotekar.rohan@gmail.com
 - **GitHub:** https://github.com/rohantikotekar
 - **LinkedIn:** https://www.linkedin.com/in/rohan-tikotekar/
 
 ---
 
-## Hero
+## Intro
 
-### Headline
+The top of the page: the name, then the location on a muted line (pulled from
+**Profile** above), then the two paragraphs below.
 
-The headline renders as three parts; the **highlight** shows in the accent gradient.
+### Paragraphs
 
-- **Before:** Engineering
-- **Highlight (gradient):** Intelligence
-- **After:** .
-
-### Tagline
-
-I build AI systems that work in the real world — from LLM agents, Computer Vision models to the full-stack products that put them to use.
-
-### Buttons
-
-- **Primary:** View selected work → links to `#projects`
-- **Secondary:** Get in touch → links to `#contact`
-
-### Signals (label → value)
-
-- **Currently:** Graduate AI/ML Research Assistant · Trustworthy Autonomous Systems Lab
-- **Focus:** LLM Agents · Computer Vision · Full-stack
-- **Education:** M.S. Computer Science
-
-### Metrics (value → label)
-
-- **92.5%** — defect detection accuracy
-- **30%** — operational risk reduction
-- **5.5k+** — users supported
-
----
-
-## About
-
-- **Kicker:** About
-- **Title:** The engineer behind the work.
-- **Intro:** The motivation and mindset behind what I build.
-- **Quick facts label:** Quick facts
-
-### Narrative paragraphs
-
-1. I build production AI systems — LLM agents and Computer Vision models delivered as full-stack software products.
-2. My experience spans fast-moving software startups, vision and software solutions for Atlas Copco, and robotics for manufacturing.
-3. I have delivered scalable backend systems, cloud infrastructure, and agentic workflows in production.
-4. I enjoy taking AI products from 0 to 1, integrating them into existing workflows and eventually deploying them into real-world production.
-
-
-### Quick facts (label → value)
-
-- **Currently:** AI Engineer · Trustworthy Autonomous Systems Lab, UC Riverside
-- **Education:** M.S. Computer Science, UC Riverside
-- **Based in:** San Francisco, California
-- **Focus:** LLM agents, RAG pipelines, perception, full-stack systems
+1. I build user-friendly AI applications delivered as full-stack products. Currently an AI Intern at a stealth AI startup in the Bay Area, building real-time, context-aware decision engines powered by LLM agents and multi-source user data.
+2. I'm also drawn to computer vision and ML research — 3D perception with point clouds, vision-language models for human intent prediction on mobile manipulators, and object detection for manufacturing. One first-author paper published in Springer Nature, and one under review at IROS 2026.
 
 ---
 
 ## Experience
 
-- **Kicker:** Experience
-- **Title:** Shipping reliably in Production.
-- **Intro:** Internships and Research roles — from the labs to startups and factory floors
+- **Heading:** Experience
 
-Each entry has: role, org, location, period, type (Internship / Research / Full-time),
-bullets, and skills.
+Each entry renders as `Role at Org` with the period on the right, the location
+on a muted line under it, then the bullets. Type and skill tags are stored but
+not shown on the page.
 
 ### 1. Graduate AI/ML Research Assistant
 
@@ -171,16 +128,157 @@ bullets, and skills.
 
 ---
 
-## Projects
+## Education
 
-- **Kicker:** Personal Projects
-- **Title:** Applying AI to real-world problems.
-- **Intro:** Each project leads with what it does, the technical depth behind it, and measurable outcomes.
-- **Card link label:** View case study
-- **Featured badge label:** Featured
+- **Heading:** Education
 
-Each project has: title, category (Full-Stack AI / Machine Learning), blurb,
-description, tags, role, GitHub link, and optional highlights / stack / architecture.
+Each entry renders as school, period on the right, then degree and location.
+
+### 1. University of California, Riverside
+
+- **Degree:** M.S. Computer Science
+- **Location:** Riverside, CA
+- **Period:** Sep 2024 — Mar 2026
+
+### 2. Savitribai Phule Pune University
+
+- **Degree:** B.Tech Information Technology
+- **Location:** Pune, India
+- **Period:** Aug 2020 — Jun 2024
+
+---
+
+## Skills
+
+- **Heading:** Technical Skills
+
+Grouped into modules — **keep this to 5 categories at most** (a test enforces
+it). Each renders as the category name followed by its tools joined with `·` on
+one line. Category blurbs are stored but not shown.
+
+### Languages
+
+- **Blurb:** The languages I think and build in.
+- Python
+- TypeScript
+- Java
+- C++
+- SQL
+
+### AI & Machine Learning
+
+- **Blurb:** Models, pipelines, and the frameworks around them.
+- PyTorch
+- TensorFlow
+- scikit-learn
+- NumPy
+- Pandas
+- OpenCV
+- YOLO
+- LangChain
+- LangGraph
+- CrewAI
+- Pinecone
+- Azure AI Search
+
+### Robotics & Perception
+
+- **Blurb:** Simulation, spatial data, and real-world perception.
+- ROS2
+- Gazebo
+- RViz
+- CARLA
+- Point Cloud Processing
+- MATLAB
+- CloudCompare
+
+### Backend & Web
+
+- **Blurb:** Services, APIs, and the data behind them.
+- FastAPI
+- Django
+- Node.js
+- React.js
+- Next.js
+- PostgreSQL
+- MongoDB
+- Redis
+- Kafka
+
+### Infrastructure & Tools
+
+- **Blurb:** Shipping and running it in production.
+- AWS
+- Docker
+- Kubernetes
+- Terraform
+- Jenkins
+- Linux
+- Git
+- Bash
+
+---
+
+## Contact
+
+- **Heading:** Contact
+
+Renders as one centered row of plain links. All three come from **Profile**
+above — the email opens a Gmail compose window.
+
+---
+
+## Footer
+
+- **Fine print:** Built with Next.js & Tailwind CSS.
+
+(One centered line: the copyright year, name, and the fine print above.)
+
+---
+
+# Not currently on the page
+
+The content below is kept in `frontend/lib/data.ts` and its components still
+exist in the repo, but nothing here renders. Ask me to bring a section back and
+I'll re-add it in the same minimal style.
+
+## Hero headline (removed)
+
+- **Before:** Engineering
+- **Highlight (gradient):** Intelligence
+- **After:** .
+- **Tagline:** I build AI systems that work in the real world — from LLM agents, Computer Vision models to the full-stack products that put them to use.
+- **Primary button:** View selected work → `#projects`
+- **Secondary button:** Get in touch → `#contact`
+
+### Signals (removed)
+
+- **Currently:** Graduate AI/ML Research Assistant · Trustworthy Autonomous Systems Lab
+- **Focus:** LLM Agents · Computer Vision · Full-stack
+- **Education:** M.S. Computer Science
+
+### Metrics (removed)
+
+- **92.5%** — defect detection accuracy
+- **30%** — operational risk reduction
+- **5.5k+** — users supported
+
+## Quick facts (removed)
+
+- **Currently:** AI Engineer · Trustworthy Autonomous Systems Lab, UC Riverside
+- **Education:** M.S. Computer Science, UC Riverside
+- **Based in:** San Francisco, California
+- **Focus:** LLM agents, RAG pipelines, perception, full-stack systems
+
+## Contact form (removed)
+
+The form and its backend (Render + Supabase + Resend) are still wired up and
+working — only the on-page form was removed.
+
+- **Form heading:** Start a conversation
+- **Form subtext:** Send a message and I'll get back to you.
+
+## Projects (removed)
 
 ### 1. Guardian RAG
 
@@ -194,15 +292,6 @@ description, tags, role, GitHub link, and optional highlights / stack / architec
   - Built a RAG-based AI agent to automate financial-compliance audits using regulatory documents and company policies.
   - Developed document ingestion, vector search, and LLM pipelines to analyze credit-card transaction context and generate evidence-backed compliance findings.
   - Generated audit-ready reports with cited regulations, risk summaries, and compliance recommendations — reducing manual review effort by 80%+.
-- **Stack:**
-  - AI: GPT-4o, LLM pipelines
-  - Retrieval: Vector search, RAG
-  - Data: Azure AI Search, Cosmos DB
-- **Architecture:**
-  - Regulatory docs & policies
-  - Document ingestion + vector search
-  - LLM compliance analysis (GPT-4o)
-  - Audit-ready report + recommendations
 
 ### 2. ShopFloorIQ
 
@@ -216,15 +305,6 @@ description, tags, role, GitHub link, and optional highlights / stack / architec
   - Built an AI-powered system to automate purchase orders, invoice processing, approvals, and inventory tracking.
   - Developed OCR and NLP pipelines with 90%+ extraction accuracy for purchase orders and invoices.
   - Created analytics dashboards for supplier performance, order tracking, and procurement insights.
-- **Stack:**
-  - AI: OCR, NLP
-  - Backend: Python, FastAPI
-  - Insights: Analytics dashboards
-- **Architecture:**
-  - Purchase orders & invoices
-  - OCR + NLP extraction
-  - Validation & approvals
-  - Inventory + analytics dashboards
 
 ### 3. CodeMates
 
@@ -252,22 +332,11 @@ description, tags, role, GitHub link, and optional highlights / stack / architec
   - Developed real-time web scraping and AI analysis, achieving <30s response time with ~94% course-relevance accuracy.
   - Automated course search and visual analysis using screenshots, cutting manual course-browsing time by ~90%.
 
----
-
-## Research
-
-- **Kicker:** Research
-- **Title:** Publications over the years.
-- **Publication card label:** Publication
-- **Paper link label:** Read paper
+## Research (removed)
 
 ### Intro
 
 My research focuses on VLMs, VLAs, Perception for Robotics and Autonomous vehicles. I have published one first-author paper in Springer Nature journal and submitted one to IROS 2026. My work enables agents to understand, navigate, and act in real-world environments.
-
-### Publications
-
-Each publication has: title, venue, year, description, tags, and link.
 
 #### 1. SATeMoMa: A Safe Assistive Teleoperation System for Mobile Manipulation
 
@@ -285,68 +354,7 @@ Each publication has: title, venue, year, description, tags, and link.
 - **Tags:** Computer Vision, CNNs, Super-Resolution
 - **Link:** https://link.springer.com/chapter/10.1007/978-981-97-5035-1_29
 
----
-
-## Skills
-
-- **Kicker:** Technical Stack
-- **Title:** Tools behind the outcomes.
-- **Intro:** The technologies I reach for across AI, machine learning, and full-stack systems.
-- **Count label:** items (shown as e.g. "12 items")
-
-Grouped into categories. Each category has a name + blurb, then a list of skills.
-(Brand logos are wired up in code — if you add a new skill, I'll attach the right logo on sync.)
-
-### Languages
-
-- **Blurb:** The languages I think and build in.
-- Python
-- Java
-- TypeScript
-
-### Software Engineering
-
-- **Blurb:** Shipping reliable, well-built products.
-- React.js
-- Node.js
-- FastAPI
-- Django
-- Docker
-- Kubernetes
-- Jenkins
-- Terraform
-- Redis
-- AWS
-- Azure
-- Git
-
-### Applied AI
-
-- **Blurb:** Putting models to work in real products.
-- LangChain
-- LangGraph
-- LangSmith
-- CrewAI
-- Hugging Face
-- RAG
-
-### ML Frameworks
-
-- **Blurb:** The tools I train and experiment with.
-- PyTorch
-- scikit-learn
-- Matplotlib
-- MLflow
-
----
-
-## Achievements
-
-- **Kicker:** Milestones
-- **Title:** Selected highlights.
-<!-- - **Intro:** A few markers along the way. -->
-
-Each achievement has: year, title, detail.
+## Achievements (removed)
 
 ### 1. IROS 2026 Submission
 
@@ -367,27 +375,3 @@ Each achievement has: year, title, detail.
 
 - **Year:** 2023
 - **Detail:** Shipped a YOLOv8 vision pipeline at Atlas Copco, cutting per-unit inspection from 45s to under 2s.
-
----
-
-## Contact
-
-- **Kicker:** Contact
-- **Title:** Let's build useful AI.
-- **Intro:** Open to AI engineering roles, applied-research collaborations, and production AI systems that need both model depth and product execution.
-- **Form heading:** Start a conversation
-- **Form subtext:** Send a message and I'll get back to you.
-- **Find-me label:** Find me
-
-The "Find me" links (Email, GitHub, LinkedIn) are generated from the Profile
-email and social links above.
-
----
-
-## Footer
-
-- **Blurb:** AI & Research Engineer building AI systems that ship. Open to roles and collaborations.
-- **Fine print:** Built with Next.js & Tailwind CSS.
-
-(The footer also shows the copyright year automatically and reuses the menu
-labels and social links from above.)

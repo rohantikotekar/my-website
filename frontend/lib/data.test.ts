@@ -7,6 +7,7 @@ import {
   profile,
   sections,
   experiences,
+  education,
   projects,
   research,
   skillCategories,
@@ -20,8 +21,8 @@ test("nav/section ids are unique", () => {
   assert.equal(new Set(ids).size, ids.length, "duplicate section id found");
 });
 
-test("contact email is the UCR address", () => {
-  assert.equal(profile.email, "rtiko001@ucr.edu");
+test("contact email is the personal Gmail address", () => {
+  assert.equal(profile.email, "tikotekar.rohan@gmail.com");
 });
 
 test("no placeholder social URLs remain", () => {
@@ -73,6 +74,27 @@ test("experiences are well-formed and non-empty", () => {
   for (const e of experiences) {
     assert.ok(e.role && e.org && e.period, `incomplete experience: ${e.role}`);
     assert.ok(e.bullets.length > 0, `no bullets for ${e.role}`);
+  }
+});
+
+test("education entries are well-formed and non-empty", () => {
+  assert.ok(education.length > 0, "no education entries");
+  for (const e of education) {
+    assert.ok(
+      e.school && e.degree && e.location && e.period,
+      `incomplete education entry: ${e.school}`
+    );
+  }
+});
+
+test("skills are grouped into at most 5 categories", () => {
+  assert.ok(skillCategories.length > 0, "no skill categories");
+  assert.ok(
+    skillCategories.length <= 5,
+    `expected at most 5 skill categories, found ${skillCategories.length}`
+  );
+  for (const cat of skillCategories) {
+    assert.ok(cat.skills.length > 0, `no skills in category "${cat.name}"`);
   }
 });
 

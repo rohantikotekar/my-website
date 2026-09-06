@@ -2,47 +2,34 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/reveal";
 
+/**
+ * The single centered column every block on the page aligns to. Kept narrow so
+ * lines stay short and the page reads top-to-bottom without scanning sideways.
+ */
+export const CONTAINER = "mx-auto w-full max-w-2xl px-6";
+
 type SectionProps = {
   id: string;
-  /** Small uppercase label above the title, e.g. "Selected Projects". */
-  kicker: string;
-  title: ReactNode;
-  /** Optional supporting line under the title. */
-  intro?: string;
+  /** Plain section heading, e.g. "Experience". */
+  title: string;
   children: ReactNode;
   className?: string;
 };
 
 /**
- * Standard section shell: consistent vertical rhythm, an accent kicker, a large
- * title, and a scroll reveal for the heading block.
+ * Minimal section shell: one centered heading over the shared narrow column.
+ * No kicker, no supporting intro — heading straight into content.
  */
-export function Section({
-  id,
-  kicker,
-  title,
-  intro,
-  children,
-  className,
-}: SectionProps) {
+export function Section({ id, title, children, className }: SectionProps) {
   return (
-    <section
-      id={id}
-      className={cn("relative scroll-mt-24 py-24 sm:py-32", className)}
-    >
-      <div className="mx-auto w-full max-w-6xl px-6">
-        <Reveal className="mb-12 max-w-2xl">
-          <p className="kicker">{kicker}</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-5xl">
+    <section id={id} className={cn("scroll-mt-20 py-12 sm:py-16", className)}>
+      <div className={CONTAINER}>
+        <Reveal>
+          <h2 className="text-center text-xl font-semibold tracking-tight sm:text-2xl">
             {title}
           </h2>
-          {intro ? (
-            <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:text-lg">
-              {intro}
-            </p>
-          ) : null}
+          <div className="mt-8">{children}</div>
         </Reveal>
-        {children}
       </div>
     </section>
   );

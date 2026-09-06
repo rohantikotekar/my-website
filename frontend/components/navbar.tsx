@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { sections, nav } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = sections.filter((s) => s.id !== "hero" && s.id !== "contact");
 const contactNav = sections.find((s) => s.id === "contact");
@@ -38,14 +39,13 @@ export function Navbar() {
           : "border-b border-transparent bg-transparent"
       )}
     >
-      <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
+      <nav className="mx-auto flex h-14 w-full max-w-2xl items-center justify-between px-6">
         <a
           href="#hero"
-          className="text-lg font-bold tracking-tight"
+          className="text-base font-bold tracking-tight"
           aria-label="Home"
         >
           {nav.brand}
-          <span className="text-accent">.</span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
@@ -61,21 +61,25 @@ export function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden md:flex">
+        <div className="hidden items-center gap-1.5 md:flex">
+          <ThemeToggle />
           <Button asChild variant="outline" size="sm">
             <a href="#contact">{nav.cta}</a>
           </Button>
         </div>
 
-        <button
-          type="button"
-          className="inline-flex size-10 items-center justify-center rounded-full text-foreground md:hidden"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-        >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
+        <div className="flex items-center gap-0.5 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="inline-flex size-10 items-center justify-center rounded-full text-foreground"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
+        </div>
       </nav>
 
       <AnimatePresence>

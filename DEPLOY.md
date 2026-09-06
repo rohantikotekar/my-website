@@ -24,7 +24,7 @@ Two options — the Blueprint is easiest since `render.yaml` is already in the r
    - `DATABASE_URL` — Supabase pooled connection (port 6543)
    - `DIRECT_URL` — Supabase direct connection (port 5432, used by migrations)
    - `RESEND_API_KEY`
-   - `CONTACT_TO_EMAIL` = `rtiko001@ucr.edu`
+   - `CONTACT_TO_EMAIL` = `tikotekar.rohan@gmail.com`
    - `CONTACT_FROM_EMAIL` = `Portfolio <onboarding@resend.dev>`
    - `CORS_ORIGIN` = your Vercel URL (set after step 2 below; can be a comma list)
    - **Do NOT set `PORT`** — Render injects it; the server reads `process.env.PORT`.
@@ -56,12 +56,13 @@ verify `…/health` returns `{"ok":true,...}`.
 
 ## 4. Email delivery (Resend)
 The contact form saves every message to Supabase, but email notification needs
-Resend out of sandbox. **Chosen approach:** make `rtiko001@ucr.edu` the Resend
-account email.
-1. resend.com → Settings → change account email to `rtiko001@ucr.edu` and confirm.
+Resend out of sandbox. **Chosen approach:** make `tikotekar.rohan@gmail.com` the
+Resend account email.
+1. resend.com → Settings → change account email to `tikotekar.rohan@gmail.com`
+   and confirm.
 2. Keep `CONTACT_FROM_EMAIL="Portfolio <onboarding@resend.dev>"` and
-   `CONTACT_TO_EMAIL="rtiko001@ucr.edu"`.
-   (Sandbox only delivers to the account's own email — which is now the UCR address.)
+   `CONTACT_TO_EMAIL="tikotekar.rohan@gmail.com"`.
+   (Sandbox only delivers to the account's own email — now the Gmail address.)
 > For sending to arbitrary recipients later, verify a domain at resend.com/domains
 > and switch `CONTACT_FROM_EMAIL` to an address on it.
 

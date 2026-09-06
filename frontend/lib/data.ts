@@ -6,19 +6,16 @@
 
 export const profile = {
   name: "Rohan Tikotekar",
-  role: "Full-stack AI engineer",
   location: "San Francisco, CA",
   // Short description used in the hero.
   tagline:
     "I build AI systems that work in the real world — from LLM agents, Computer Vision models to the full-stack products that put them to use.",
-  // Longer narrative for the About section.
+  // Two-paragraph intro shown directly under the name.
   about: [
-    "I build production AI systems — LLM agents and Computer Vision models delivered as full-stack software products.",
-    "My experience spans fast-moving software startups, vision and software solutions for Atlas Copco, and robotics for manufacturing.",
-    "I have delivered scalable backend systems, cloud infrastructure, and agentic workflows in production.",
-    "I enjoy taking AI products from 0 to 1, integrating them into existing workflows and eventually deploying them into real-world production.",
+    "I build user-friendly AI applications delivered as full-stack products. Currently an AI Intern at a stealth AI startup in the Bay Area, building real-time, context-aware decision engines powered by LLM agents and multi-source user data.",
+    "I'm also drawn to computer vision and ML research — 3D perception with point clouds, vision-language models for human intent prediction on mobile manipulators, and object detection for manufacturing. One first-author paper published in Springer Nature, and one under review at IROS 2026.",
   ],
-  email: "rtiko001@ucr.edu",
+  email: "tikotekar.rohan@gmail.com",
   social: {
     github: "https://github.com/rohantikotekar",
     linkedin: "https://www.linkedin.com/in/rohan-tikotekar/",
@@ -32,7 +29,7 @@ export const profile = {
 
 /** SEO / social metadata (app/layout.tsx). */
 export const siteMeta = {
-  title: "Rohan Tikotekar — Full-stack AI engineer",
+  title: "Rohan Tikotekar Website",
   description:
     "Portfolio of Rohan Tikotekar — AI & Research Engineer building LLM agents, vision-language systems, RAG pipelines, and full-stack AI products.",
   keywords: [
@@ -89,7 +86,7 @@ export const sectionContent = {
   },
   work: {
     kicker: "Experience",
-    title: "Shipping reliably in Production.",
+    title: "Experience",
     intro:
       "Internships and Research roles — from the labs to startups and factory floors",
   },
@@ -107,9 +104,13 @@ export const sectionContent = {
     publicationLabel: "Publication",
     readPaperLabel: "Read paper",
   },
+  education: {
+    kicker: "Education",
+    title: "Education",
+  },
   skills: {
     kicker: "Technical Stack",
-    title: "Tools behind the outcomes.",
+    title: "Technical Skills",
     intro:
       "The technologies I reach for across AI, machine learning, and full-stack systems.",
     itemsLabel: "items",
@@ -120,7 +121,7 @@ export const sectionContent = {
   },
   contact: {
     kicker: "Contact",
-    title: "Let's build useful AI.",
+    title: "Contact",
     intro:
       "Open to AI engineering roles, applied-research collaborations, and production AI systems that need both model depth and product execution.",
     formHeading: "Start a conversation",
@@ -176,10 +177,8 @@ export const quickFacts: QuickFact[] = [
  */
 export const sections = [
   { id: "hero", nav: "Home" },
-  { id: "about", nav: "About" },
-  { id: "work", nav: "Work" },
-  { id: "projects", nav: "Projects" },
-  { id: "research", nav: "Research" },
+  { id: "work", nav: "Experience" },
+  { id: "education", nav: "Education" },
   { id: "skills", nav: "Skills" },
   { id: "contact", nav: "Contact" },
 ] as const;
@@ -256,6 +255,29 @@ export const experiences: WorkExperience[] = [
   },
 ];
 
+/** Education — degrees, newest first. */
+export type Education = {
+  school: string;
+  degree: string;
+  location: string;
+  period: string;
+};
+
+export const education: Education[] = [
+  {
+    school: "University of California, Riverside",
+    degree: "M.S. Computer Science",
+    location: "Riverside, CA",
+    period: "Sep 2024 — Mar 2026",
+  },
+  {
+    school: "Savitribai Phule Pune University",
+    degree: "B.Tech Information Technology",
+    location: "Pune, India",
+    period: "Aug 2020 — Jun 2024",
+  },
+];
+
 /**
  * Skills — grouped into categories. Each technology can carry a `slug` matching
  * a Simple Icons logo (see lib/tech-icons.ts); when absent, a lettered monogram
@@ -282,52 +304,75 @@ export const skillCategories: SkillCategory[] = [
     name: "Languages",
     blurb: "The languages I think and build in.",
     skills: [
-      { name: "Python", slug: "python" },
-      { name: "Java", slug: "openjdk" },
-      { name: "TypeScript", slug: "typescript" },
+      { name: "Python" },
+      { name: "TypeScript" },
+      { name: "Java" },
+      { name: "C++" },
+      { name: "SQL" },
     ],
   },
   {
-    id: "software",
-    name: "Software Engineering",
-    blurb: "Shipping reliable, well-built products.",
+    id: "ai-ml",
+    name: "AI & Machine Learning",
+    blurb: "Models, pipelines, and the frameworks around them.",
     skills: [
-      { name: "React.js", slug: "react" },
-      { name: "Node.js", slug: "nodedotjs" },
-      { name: "FastAPI", slug: "fastapi" },
-      { name: "Django", slug: "django" },
-      { name: "Docker", slug: "docker" },
-      { name: "Kubernetes", slug: "kubernetes" },
-      { name: "Jenkins", slug: "jenkins" },
-      { name: "Terraform", slug: "terraform" },
-      { name: "Redis", slug: "redis" },
-      { name: "AWS", img: "/logos/aws.png" },
-      { name: "Azure", img: "/logos/azure-logo.png" },
-      { name: "Git", slug: "git" },
+      { name: "PyTorch" },
+      { name: "TensorFlow" },
+      { name: "scikit-learn" },
+      { name: "NumPy" },
+      { name: "Pandas" },
+      { name: "OpenCV" },
+      { name: "YOLO" },
+      { name: "LangChain" },
+      { name: "LangGraph" },
+      { name: "CrewAI" },
+      { name: "Pinecone" },
+      { name: "Azure AI Search" },
     ],
   },
   {
-    id: "applied-ai",
-    name: "Applied AI",
-    blurb: "Putting models to work in real products.",
+    id: "robotics",
+    name: "Robotics & Perception",
+    blurb: "Simulation, spatial data, and real-world perception.",
     skills: [
-      { name: "LangChain", img: "/logos/langchain.png" },
-      { name: "LangGraph", img: "/logos/langgraph.png" },
-      { name: "LangSmith" },
-      { name: "CrewAI", slug: "crewai" },
-      { name: "Hugging Face", slug: "huggingface" },
-      { name: "RAG" },
+      { name: "ROS2" },
+      { name: "Gazebo" },
+      { name: "RViz" },
+      { name: "CARLA" },
+      { name: "Point Cloud Processing" },
+      { name: "MATLAB" },
+      { name: "CloudCompare" },
     ],
   },
   {
-    id: "ml-frameworks",
-    name: "ML Frameworks",
-    blurb: "The tools I train and experiment with.",
+    id: "backend-web",
+    name: "Backend & Web",
+    blurb: "Services, APIs, and the data behind them.",
     skills: [
-      { name: "PyTorch", slug: "pytorch" },
-      { name: "scikit-learn", slug: "scikitlearn" },
-      { name: "Matplotlib" },
-      { name: "MLflow", slug: "mlflow" },
+      { name: "FastAPI" },
+      { name: "Django" },
+      { name: "Node.js" },
+      { name: "React.js" },
+      { name: "Next.js" },
+      { name: "PostgreSQL" },
+      { name: "MongoDB" },
+      { name: "Redis" },
+      { name: "Kafka" },
+    ],
+  },
+  {
+    id: "infrastructure",
+    name: "Infrastructure & Tools",
+    blurb: "Shipping and running it in production.",
+    skills: [
+      { name: "AWS" },
+      { name: "Docker" },
+      { name: "Kubernetes" },
+      { name: "Terraform" },
+      { name: "Jenkins" },
+      { name: "Linux" },
+      { name: "Git" },
+      { name: "Bash" },
     ],
   },
 ];

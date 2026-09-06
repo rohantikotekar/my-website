@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
 /*
-  Design system — dark, minimal, premium.
-  A single restrained dark theme: near-black background, glassy white surfaces,
-  hairline borders, and a cyan→purple accent used sparingly. Components consume
-  tokens only, so the whole site stays visually consistent.
+  Design system — minimal, premium, in two themes.
+  Dark is the default; light mirrors it with the same restrained structure and a
+  darkened cyan→purple accent that keeps text contrast accessible on a pale
+  ground. Components consume tokens only, so both themes stay consistent.
+
+  The theme is set as `data-theme` on <html> by the inline script in layout.tsx
+  before first paint (localStorage choice, else the OS preference), so there is
+  no flash of the wrong theme.
 */
 
 :root {
@@ -32,6 +36,45 @@
 
   --primary: #72e4ff;
   --primary-foreground: #061015;
+
+  /* Ambient page background — glows, grid, and selection. */
+  --glow-1: rgba(114, 228, 255, 0.12);
+  --glow-2: rgba(167, 139, 250, 0.11);
+  --grid-line: rgba(255, 255, 255, 0.04);
+  --selection: rgba(114, 228, 255, 0.24);
+  --selection-foreground: #ffffff;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --background: #fbfcfd;
+  --background-2: #f1f4f8;
+  --foreground: #0d1117;
+  --soft: #3d4650;
+
+  --card: rgba(13, 17, 23, 0.035);
+  --card-strong: rgba(13, 17, 23, 0.065);
+  --card-foreground: #0d1117;
+
+  --muted: rgba(13, 17, 23, 0.04);
+  --muted-foreground: #5b6672;
+
+  --border: rgba(13, 17, 23, 0.12);
+  --input: rgba(13, 17, 23, 0.18);
+  --ring: #0e7490;
+
+  --accent: #0e7490;
+  --accent-2: #7c3aed;
+
+  --primary: #0e7490;
+  --primary-foreground: #ffffff;
+
+  --glow-1: rgba(14, 116, 144, 0.1);
+  --glow-2: rgba(124, 58, 237, 0.08);
+  --grid-line: rgba(13, 17, 23, 0.045);
+  --selection: rgba(14, 116, 144, 0.18);
+  --selection-foreground: #0d1117;
 }
 
 @theme inline {
@@ -81,9 +124,14 @@
     color: var(--foreground);
     background-color: var(--background);
     background-image:
-      radial-gradient(circle at top left, rgba(114, 228, 255, 0.12), transparent 34rem),
-      radial-gradient(circle at 82% 6%, rgba(167, 139, 250, 0.11), transparent 32rem),
-      linear-gradient(180deg, #07080a 0%, #0b0d11 55%, #07080a 100%);
+      radial-gradient(circle at top left, var(--glow-1), transparent 34rem),
+      radial-gradient(circle at 82% 6%, var(--glow-2), transparent 32rem),
+      linear-gradient(
+        180deg,
+        var(--background) 0%,
+        var(--background-2) 55%,
+        var(--background) 100%
+      );
     background-attachment: fixed;
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -99,16 +147,16 @@
     pointer-events: none;
     opacity: 0.3;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
     background-size: 46px 46px;
     -webkit-mask-image: linear-gradient(to bottom, black, transparent 72%);
     mask-image: linear-gradient(to bottom, black, transparent 72%);
   }
 
   ::selection {
-    background-color: rgba(114, 228, 255, 0.24);
-    color: #fff;
+    background-color: var(--selection);
+    color: var(--selection-foreground);
   }
 
   h1,
@@ -129,9 +177,31 @@
     color: var(--accent);
   }
 
+  /*
+    Theme-toggle glyphs. Dark theme offers the sun (click to go light) and light
+    theme the moon. Driven by CSS rather than React state so the right icon is
+    correct on first paint.
+  */
+  .theme-icon-moon {
+    display: none;
+  }
+
+  :root[data-theme="light"] .theme-icon-sun {
+    display: none;
+  }
+
+  :root[data-theme="light"] .theme-icon-moon {
+    display: block;
+  }
+
   /* Cyan→purple text used on key words in headings. */
   .text-gradient {
-    background: linear-gradient(120deg, #ffffff, #9beaff 55%, #c4b5fd);
+    background: linear-gradient(
+      120deg,
+      var(--foreground),
+      var(--accent) 55%,
+      var(--accent-2)
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
