@@ -8,12 +8,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Cyan→purple gradient on dark text — the primary call to action.
+        // Cyan→purple gradient behind contrasting text — the primary call to action.
         default:
-          "bg-[linear-gradient(135deg,var(--accent),var(--accent-2))] text-primary-foreground shadow-[0_8px_30px_rgba(114,228,255,0.18)] hover:shadow-[0_10px_40px_rgba(114,228,255,0.28)] hover:brightness-105",
+          "bg-[linear-gradient(135deg,var(--accent),var(--accent-2))] text-primary-foreground shadow-[0_8px_30px_var(--accent-shadow)] hover:shadow-[0_10px_40px_var(--accent-shadow-strong)] hover:brightness-105",
         outline:
-          "border border-border bg-white/5 text-foreground hover:bg-white/10 hover:border-white/20",
-        ghost: "text-foreground hover:bg-white/5",
+          "border border-border bg-card text-foreground hover:bg-card-strong hover:border-accent/40",
+        ghost: "text-foreground hover:bg-card",
         link: "text-accent underline-offset-4 hover:underline",
       },
       size: {

@@ -119,12 +119,12 @@ export function ProjectCaseStudy({
               <img
                 src={project.media.src}
                 alt={project.media.alt ?? `${project.title} preview`}
-                className="aspect-video w-full bg-white/[0.02] object-contain"
+                className="aspect-video w-full bg-card object-contain"
               />
             )}
           </div>
         ) : (
-          <div className="mt-8 flex aspect-video w-full items-center justify-center overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-accent/10 via-accent-2/10 to-white/[0.03]">
+          <div className="mt-8 flex aspect-video w-full items-center justify-center overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-accent/10 via-accent-2/10 to-card">
             <div className="flex flex-col items-center gap-2 text-muted-foreground">
               <PlayCircle className="size-10 text-accent/70" />
               <span className="text-sm">Demo coming soon</span>
@@ -213,7 +213,7 @@ export function ProjectCaseStudy({
         {(project.challenge || project.lesson) && (
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {project.challenge && (
-              <div className="rounded-2xl border border-border bg-white/[0.03] p-5">
+              <div className="rounded-2xl border border-border bg-card p-5">
                 <h4 className="text-xs font-semibold uppercase tracking-wide text-accent">
                   Challenge
                 </h4>
@@ -221,7 +221,7 @@ export function ProjectCaseStudy({
               </div>
             )}
             {project.lesson && (
-              <div className="rounded-2xl border border-border bg-white/[0.03] p-5">
+              <div className="rounded-2xl border border-border bg-card p-5">
                 <h4 className="text-xs font-semibold uppercase tracking-wide text-accent">
                   What I learned
                 </h4>

@@ -43,38 +43,52 @@
   --grid-line: rgba(255, 255, 255, 0.04);
   --selection: rgba(114, 228, 255, 0.24);
   --selection-foreground: #ffffff;
+  --accent-shadow: rgba(114, 228, 255, 0.18);
+  --accent-shadow-strong: rgba(114, 228, 255, 0.28);
 }
 
 :root[data-theme="light"] {
   color-scheme: light;
 
-  --background: #fbfcfd;
-  --background-2: #f1f4f8;
-  --foreground: #0d1117;
-  --soft: #3d4650;
+  /*
+    Ink-on-paper rather than grey-on-grey. Body copy sits near 9.7:1 and the
+    intro near 13.9:1 against the page, so small text stays crisp instead of
+    washing out the way a mid-grey does on a near-white ground.
+  */
+  --background: #fcfdfe;
+  --background-2: #eef2f7;
+  --foreground: #0b1016;
+  --soft: #232c37;
 
-  --card: rgba(13, 17, 23, 0.035);
-  --card-strong: rgba(13, 17, 23, 0.065);
-  --card-foreground: #0d1117;
+  --card: rgba(11, 16, 22, 0.045);
+  --card-strong: rgba(11, 16, 22, 0.08);
+  --card-foreground: #0b1016;
 
-  --muted: rgba(13, 17, 23, 0.04);
-  --muted-foreground: #5b6672;
+  --muted: rgba(11, 16, 22, 0.05);
+  --muted-foreground: #3a4452;
 
-  --border: rgba(13, 17, 23, 0.12);
-  --input: rgba(13, 17, 23, 0.18);
-  --ring: #0e7490;
+  --border: rgba(11, 16, 22, 0.16);
+  --input: rgba(11, 16, 22, 0.24);
+  --ring: #0b5c6e;
 
-  --accent: #0e7490;
-  --accent-2: #7c3aed;
+  /*
+    A deeper teal than the dark theme's cyan: it clears AAA (7.4:1) for the small
+    date text, and gives white button labels a stronger ground to sit on.
+  */
+  --accent: #0b5c6e;
+  --accent-2: #6d28d9;
 
-  --primary: #0e7490;
+  --primary: #0b5c6e;
   --primary-foreground: #ffffff;
 
-  --glow-1: rgba(14, 116, 144, 0.1);
-  --glow-2: rgba(124, 58, 237, 0.08);
-  --grid-line: rgba(13, 17, 23, 0.045);
-  --selection: rgba(14, 116, 144, 0.18);
-  --selection-foreground: #0d1117;
+  /* Kept faint — heavier tints grey the page and flatten the text contrast. */
+  --glow-1: rgba(14, 116, 144, 0.07);
+  --glow-2: rgba(109, 40, 217, 0.055);
+  --grid-line: rgba(11, 16, 22, 0.05);
+  --selection: rgba(14, 116, 144, 0.22);
+  --selection-foreground: #06222b;
+  --accent-shadow: rgba(14, 116, 144, 0.22);
+  --accent-shadow-strong: rgba(14, 116, 144, 0.32);
 }
 
 @theme inline {
@@ -134,8 +148,19 @@
       );
     background-attachment: fixed;
     font-family: var(--font-sans);
+    /* Thinning light text on a dark ground stops it blooming. */
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+  }
+
+  /*
+    On the light theme the same thinning makes text look weak and washed out, so
+    fall back to the platform's subpixel rendering — glyphs keep their full
+    weight and small copy stays sharp.
+  */
+  :root[data-theme="light"] body {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
   }
 
   /* Faint technical grid that fades out toward the page bottom. */

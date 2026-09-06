@@ -97,7 +97,7 @@ export function Navbar() {
                   <a
                     href={`#${item.id}`}
                     onClick={() => setOpen(false)}
-                    className="block rounded-xl px-3 py-3 text-sm font-medium text-foreground transition-colors hover:bg-white/5"
+                    className="block rounded-xl px-3 py-3 text-sm font-medium text-foreground transition-colors hover:bg-card"
                   >
                     {item.nav}
                   </a>

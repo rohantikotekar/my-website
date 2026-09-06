@@ -8,7 +8,7 @@ const badgeVariants = cva(
     variants: {
       variant: {
         // Subtle glassy chip — used for tech tags.
-        default: "border-border bg-white/5 text-soft",
+        default: "border-border bg-card text-soft",
         // Cyan accent — used for featured / emphasis labels.
         accent: "border-accent/30 bg-accent/10 text-accent",
         outline: "border-border text-muted-foreground",
