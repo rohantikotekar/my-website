@@ -1,12 +1,30 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { siteMeta } from "@/lib/data";
 
+/*
+ * Three roles: Inter for body copy (highest legibility at small sizes), Space
+ * Grotesk for headings (geometric and a little characterful), and JetBrains
+ * Mono for metadata — dates, locations, tags — which is what gives the page its
+ * engineering feel without adding any chrome.
+ */
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -38,7 +56,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="dark"
-      className={`${inter.variable} h-full antialiased`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

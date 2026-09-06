@@ -42,7 +42,7 @@ export function Navbar() {
       <nav className="mx-auto flex h-14 w-full max-w-2xl items-center justify-between px-6">
         <a
           href="#hero"
-          className="text-base font-bold tracking-tight"
+          className="font-display text-base font-bold tracking-tight transition-colors hover:text-accent"
           aria-label="Home"
         >
           {nav.brand}
@@ -53,7 +53,7 @@ export function Navbar() {
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
-                className="rounded-full px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="rounded-full px-3 py-1.5 font-mono text-xs text-muted-foreground transition-colors hover:text-accent"
               >
                 {item.nav}
               </a>
@@ -97,7 +97,7 @@ export function Navbar() {
                   <a
                     href={`#${item.id}`}
                     onClick={() => setOpen(false)}
-                    className="block rounded-xl px-3 py-3 text-sm font-medium text-foreground transition-colors hover:bg-card"
+                    className="block rounded-xl px-3 py-3 font-mono text-sm text-foreground transition-colors hover:bg-card hover:text-accent"
                   >
                     {item.nav}
                   </a>

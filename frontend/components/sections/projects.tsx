@@ -86,7 +86,7 @@ export function Projects() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <Section id="projects" title={sectionContent.projects.title}>
+    <Section id="projects" index="05" title={sectionContent.projects.title}>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         {projects.map((project, i) => (
           <ProjectCard

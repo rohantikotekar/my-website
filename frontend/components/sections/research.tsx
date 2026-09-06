@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 export function Research() {
   const c = sectionContent.research;
   return (
-    <Section id="research" title={c.title}>
+    <Section id="research" index="06" title={c.title}>
       <div className="grid gap-5 lg:grid-cols-2">
         {research.publications.map((pub, i) => (
           <Reveal key={pub.title} delay={(i % 2) * 0.08}>

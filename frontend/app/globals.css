@@ -115,6 +115,10 @@
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-inter), ui-sans-serif,
+    system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo,
+    Consolas, monospace;
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 0.4rem);
@@ -219,17 +223,82 @@
     display: block;
   }
 
-  /* Cyan→purple text used on key words in headings. */
+  /*
+    Cyan→purple text used on key words. The gradient is wider than the text and
+    drifts slowly, so the name has a little life without anything moving on the
+    page. The reduced-motion block below parks the animation.
+  */
   .text-gradient {
     background: linear-gradient(
-      120deg,
-      var(--foreground),
-      var(--accent) 55%,
-      var(--accent-2)
+      110deg,
+      var(--foreground) 0%,
+      var(--accent) 38%,
+      var(--accent-2) 62%,
+      var(--foreground) 100%
     );
+    background-size: 220% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    animation: gradient-drift 9s ease-in-out infinite;
+  }
+
+  @keyframes gradient-drift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Monospace metadata — dates, locations, counts. */
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    color: var(--muted-foreground);
+  }
+
+  /*
+    Skill / keyword tag. Deliberately light: a tinted ground and hairline rule
+    rather than a card, so a dense list still reads as text.
+  */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    background: var(--card);
+    padding: 0.25rem 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    line-height: 1.35;
+    color: var(--soft);
+    transition:
+      border-color 0.18s ease,
+      background-color 0.18s ease,
+      color 0.18s ease,
+      transform 0.18s ease;
+  }
+
+  .tag:hover {
+    border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+    background: color-mix(in srgb, var(--accent) 12%, var(--card));
+    color: var(--foreground);
+    transform: translateY(-1px);
+  }
+
+  /* Hairline that fades out — used beside section headings. */
+  .rule-fade {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--accent) 55%, transparent),
+      var(--border) 35%,
+      transparent
+    );
   }
 }
 

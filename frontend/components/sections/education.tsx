@@ -1,23 +1,26 @@
 import { education, sectionContent } from "@/lib/data";
 import { Section } from "@/components/section";
 
-/** Degrees in the same plain shape as the experience list. */
+/** Degrees, in the same railed shape as the experience list. */
 export function Education() {
   return (
-    <Section id="education" title={sectionContent.education.title}>
-      <div className="space-y-6">
+    <Section id="education" index="02" title={sectionContent.education.title}>
+      <div className="space-y-7">
         {education.map((entry) => (
-          <article key={entry.school}>
+          <article
+            key={entry.school}
+            className="border-l-2 border-border pl-5 transition-colors duration-200 hover:border-accent/70"
+          >
             <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-              <h3 className="text-[0.95rem] font-semibold tracking-tight">
+              <h3 className="font-display text-base font-bold tracking-tight">
                 {entry.school}
               </h3>
-              <span className="text-xs text-accent">{entry.period}</span>
+              <span className="meta shrink-0">{entry.period}</span>
             </div>
-            <p className="mt-1 text-sm text-soft">{entry.degree}</p>
-            <p className="mt-0.5 text-xs text-muted-foreground">
-              {entry.location}
+            <p className="mt-1 text-sm font-semibold text-accent">
+              {entry.degree}
             </p>
+            <p className="meta mt-1">{entry.location}</p>
           </article>
         ))}
       </div>
